@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :name, :address, :role, presence: true
   validates :description, presence: true, if: :cooperative?
 
+  has_many :trades
+
   enum role: {
     person: "Person",
     cooperative: "Cooperative"
