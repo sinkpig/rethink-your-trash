@@ -1,7 +1,7 @@
 class TradesController < ApplicationController
 
   def index
-    @trades = Trade.all
+    @trades = Trade.where(user_id: current_user.id)
   end
 
   def new
@@ -15,6 +15,7 @@ class TradesController < ApplicationController
       redirect_to trades_path(@trade)
     else
       render :new, status: :unprocessable_entity
+      #the render shows the fields that must be corrected by the user
     end
   end
 
