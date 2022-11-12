@@ -2,8 +2,8 @@
 
 <%= simple_form_for [@trade] do |f| %>
   <%= f.input :material_id, collection: ["Plastic", "Metal", "Batteries", "Glass", "Organic", "Clothes", "Clothes", "Carton"] %>
+  <%= f.input :material_quantity %>
   <%= f.input :delivery_method, collection: ["Pickup", "Drop off"] %>
   <%= f.input :delivery_date %>
-  <%= f.input :material_quantity %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
