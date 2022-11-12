@@ -13,7 +13,7 @@ Material.destroy_all
 puts 'End'
 puts 'Creating a person 1'
 user = User.create(name: "Juju", email: "test@test.com", password: "123123", password_confirmation: "123123",
-            address: "Avenida Paulista, 1811 - Bela Vista, São Paulo - SP, 01311-200, Brazil", role: "Person")
+            address: "Avenida Paulista, 1811 - Bela Vista, São Paulo - SP, 01311-200, Brazil", role: "person")
 puts 'End'
 puts 'Creating a cooperative 1'
 User.create(name: "Cooperativa Paulista de Teatro",
@@ -21,7 +21,7 @@ User.create(name: "Cooperativa Paulista de Teatro",
             password: "123123",
             password_confirmation: "123123",
             address: "Rua Doutor Rafael de Barros, 262 - Paraíso, São Paulo - SP, 04003-041, Brazil",
-            role: "Cooperative",
+            role: "cooperative",
             description: Faker::Quotes::Chiquito.sentence)
 puts 'End'
 puts 'Creating a cooperative 2'
@@ -30,7 +30,7 @@ User.create(name: "Ayres Comércio e Reciclagem de Metais",
             password: "123123",
             password_confirmation: "123123",
             address: "Rua Fradique Coutinho, 153 - Pinheiros, São Paulo - SP, 05416-010, Brazil",
-            role: "Cooperative",
+            role: "cooperative",
             description: Faker::Quotes::Chiquito.sentence)
 puts 'End'
 puts 'Creating a cooperative 3'
@@ -39,7 +39,7 @@ User.create(name: "Bem Estar Reciclagem",
             password: "123123",
             password_confirmation: "123123",
             address: "Rua Jericó, 193, Sumarezinho, São Paulo - SP, 05435-040, Brazil",
-            role: "Cooperative",
+            role: "cooperative",
             description: Faker::Quotes::Chiquito.sentence)
 puts 'End'
 puts 'Creating materials'
