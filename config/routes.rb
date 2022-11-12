@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/show'
   devise_for :users
   root to: "pages#home"
   get "/profile", to: "pages#profile"
@@ -6,6 +8,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :trades
-  resources :materials, only: %i[index show]
+  resources :trades, only: %i[destroy]
+  resources :materials, only: %i[show]
+  resources :users, only: %i[index show] do
+    resources :trades, only: %i[new create]
+  end
 end

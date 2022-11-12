@@ -53,8 +53,3 @@ Material.create(name: "Clothes", description: Faker::Lorem.sentence)
 Material.create(name: "Electronics", description: Faker::Lorem.sentence)
 Material.create(name: "Carton", description: Faker::Lorem.sentence)
 puts 'End'
-puts 'Creating trade'
-trade = Trade.new(created_date: Date.today, user_id: user.id, material_id: material.id,
-                  delivery_method: "Drop off", delivery_date: (Date.today + 7), material_quantity: 3, status: "Pending")
-trade.save!
-puts 'End'

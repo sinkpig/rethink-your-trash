@@ -1,7 +1,7 @@
 <h1>Create a new trade</h1>
 
-<%= simple_form_for [@trade] do |f| %>
-  <%= f.input :material_id, collection: ["Plastic", "Metal", "Batteries", "Glass", "Organic", "Clothes", "Clothes", "Carton"] %>
+<%= simple_form_for [@cooperative, @trade] do |f| %>
+  <%= f.association :material %>
   <%= f.input :material_quantity %>
   <%= f.input :delivery_method, collection: ["Pickup", "Drop off"] %>
   <%= f.input :delivery_date %>
