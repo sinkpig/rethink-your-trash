@@ -1,0 +1,8 @@
+<div class="bg-info rounded-circle" width="20px" height="20px"></div>
+<h1><%= current_user.name %></h1>
+<% if current_user.cooperative? %>
+  <h6><%= current_user.description %></h6>
+<% end %>
+<%# SHOW ALL TRADES %>
+<%# IF COOPERATIVE, EDIT TRADES STATUS %>
+<%# IF PERSON, SHOW COINS %>
