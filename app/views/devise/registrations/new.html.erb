@@ -8,16 +8,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
     <%= f.input :address %>
   </div>
 
   <div class="field">
-    <%= f.input :role, collection: User.roles.keys %>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
@@ -32,6 +28,16 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+
+  <div class="field" data-controller="show-description-field">
+    <%= f.input :role, collection: User.roles.keys, input_html: { data: { action: "change->show-description-field#show" } } %>
+      <div class="field">
+        <div class="d-none" data-show-description-field-target="description">
+        <%= f.input :description %>
+        </div>
+      </div>
+  </div>
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>
