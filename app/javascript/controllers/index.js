@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import ShowDescriptionFieldController from "./show_description_field_controller"
+application.register("show-description-field", ShowDescriptionFieldController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
