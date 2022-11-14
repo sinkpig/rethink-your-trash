@@ -1,2 +1,5 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Hi <%= current_user.name %></h1>
+
+<h2>See your current trades here:</h2>
+<% @trades.each do |trade| %>
+<%= trade %>
