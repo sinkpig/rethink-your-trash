@@ -1,0 +1,8 @@
+<% @trades.each do |trade| %>
+  <p><%= trade.cooperative.name %></p>
+  <p>Status: <%= trade.status %></p>
+  <p>Material: <%= trade.material %>
+  <p>Quantity: <%= trade.material %> liters</p>
+  <p>Created at: <%= trade.created_date %></p>
+  <p>To <%= trade.delivery_method %> at <%= trade.delivery_date %></p>
+<% end %>

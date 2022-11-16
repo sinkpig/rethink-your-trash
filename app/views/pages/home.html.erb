@@ -1,14 +1,25 @@
 <% if current_user.person? %>
 
-
   <h1>Hi <%= current_user.name %></h1>
 
-  <h2>See your current trades here:</h2>
-  <% @trades.each do |trade| %>
-    <%= trade.cooperative.name %>
+  <h3>Check your trades:</h3>
+    <% if @trades == 0 %>
+      <p>You don't have any opened trades</p>
+    <% else %>
+      <% @trades.each do |trade| %>
+        <p><%= trade.cooperative.name %></p>
+        <p>Status: <%= trade.status %></p>
+        <p>Material: <%= trade.material %>
+        <p>Quantity: <%= trade.material %> liters</p>
+        <p>Created at: <%= trade.created_date %></p>
+        <p>To <%= trade.delivery_method %> at <%= trade.delivery_date %></p>
+      <% end %>
+      <%# <% render "trades/trades_cards" %>
   <% end %>
 
+  <%# resolver a questao do id da cooperativa ser preenchido automaticamente no momento da criacao da trade (esta imprimindo o nome da person pq por hora o id gerado pra person e cooperative eh o mesmo) %>
 <% else %>
+  <%# <% render "profile" %>
 
 # view da home de cooperative
 
