@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @trades = current_user.trades.where(status: "In progress" || "Pending")
+    @trades = current_user.trades.where(status: ["In progress", "Pending"]).last(5)
     @materials = Material.all
     #map with cooperatives
     #wallet

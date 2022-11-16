@@ -2,4 +2,5 @@
 
 <h2>See your current trades here:</h2>
 <% @trades.each do |trade| %>
-<%= trade %>
+  <%= trade.cooperative.name %>
+<% end %>

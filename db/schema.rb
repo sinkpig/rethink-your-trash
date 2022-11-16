@@ -26,15 +26,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_12_151934) do
     t.date "delivery_date"
     t.string "delivery_method"
     t.integer "material_quantity"
-    t.integer "person_id"
-    t.string "person_type"
-    t.integer "cooperative_id"
-    t.string "cooperative_type"
+    t.bigint "user_id", null: false
     t.bigint "material_id", null: false
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["material_id"], name: "index_trades_on_material_id"
+    t.index ["user_id"], name: "index_trades_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,4 +52,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_12_151934) do
   end
 
   add_foreign_key "trades", "materials"
+  add_foreign_key "trades", "users"
 end
