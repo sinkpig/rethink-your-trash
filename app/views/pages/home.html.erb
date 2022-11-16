@@ -1,2 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% if current_user.person? %>
+
+
+  <h1>Hi <%= current_user.name %></h1>
+
+  <h2>See your current trades here:</h2>
+  <% @trades.each do |trade| %>
+    <%= trade.cooperative.name %>
+  <% end %>
+
+<% else %>
+
+# view da home de cooperative
+
+<% end %>

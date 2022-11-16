@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :name, :address, :role, presence: true
   validates :description, presence: true, if: :cooperative?
+  has_many :trades
 
   enum role: {
     person: "person",
@@ -15,4 +16,9 @@ class User < ApplicationRecord
   def cooperative?
     role == "cooperative"
   end
+
+  def person?
+    role == "person"
+  end
+
 end
