@@ -1,26 +1,40 @@
-<% if current_user.person? %>
+<div class="container">
+  <% if current_user.person? %>
 
-  <h1>Hi <%= current_user.name %></h1>
+    <h1>Hi <%= current_user.name %></h1>
+    <div class="container">
+      <h4>Check your trades:</h4>
+        <% if @trades == 0 %>
+          <p>You don't have any opened trades</p>
+        <% else %>
+          <div class="d-flex flex-row">
+            <% @trades.each do |trade| %>
+              <%# <% render "trades/trades_cards" %>
+              <div class="card" style="width: 18rem;" >
+                <div class="card-body">
+                  <h5 class="card-title">Cooperative: <%= trade.cooperative.name %></h5>
+                  <%# resolver a questao do id da cooperativa ser preenchido automaticamente no momento da criacao da trade (esta imprimindo o nome da person pq por hora o id gerado pra person e cooperative eh o mesmo) %>
+                  <h6 class="card-subtitle mb-2 text-muted">Status: <%= trade.status %></h6>
+                  <p class="card-text">
+                    Material: <%= trade.material %><br>
+                    Quantity: <%= trade.material %> liters<br>
+                    Created on <%= trade.created_date %><br>
+                    To <%= trade.delivery_method %> on <%= trade.delivery_date %>
+                  </p>
+                  <a href="#" class="card-link">Cancel trade</a>
+                  <a href="#" class="card-link">Another link</a>
+                  <%# colocar as rotas e mudar para link to %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
 
-  <h3>Check your trades:</h3>
-    <% if @trades == 0 %>
-      <p>You don't have any opened trades</p>
-    <% else %>
-      <% @trades.each do |trade| %>
-        <p><%= trade.cooperative.name %></p>
-        <p>Status: <%= trade.status %></p>
-        <p>Material: <%= trade.material %>
-        <p>Quantity: <%= trade.material %> liters</p>
-        <p>Created at: <%= trade.created_date %></p>
-        <p>To <%= trade.delivery_method %> at <%= trade.delivery_date %></p>
-      <% end %>
-      <%# <% render "trades/trades_cards" %>
+  <% else %>
+    <%# <% render "profile" %>
+
+  # view da home de cooperative
+
   <% end %>
-
-  <%# resolver a questao do id da cooperativa ser preenchido automaticamente no momento da criacao da trade (esta imprimindo o nome da person pq por hora o id gerado pra person e cooperative eh o mesmo) %>
-<% else %>
-  <%# <% render "profile" %>
-
-# view da home de cooperative
-
-<% end %>
+</div>
