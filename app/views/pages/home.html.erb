@@ -1,40 +1,30 @@
 <div class="container">
   <% if current_user.person? %>
-
     <h1>Hi <%= current_user.name %></h1>
+
     <div class="container">
-      <h4>Check your trades:</h4>
+      <h4>Your trades:</h4>
         <% if @trades == 0 %>
           <p>You don't have any opened trades</p>
         <% else %>
-          <div class="d-flex flex-row">
-            <% @trades.each do |trade| %>
-              <%# <% render "trades/trades_cards" %>
-              <div class="card" style="width: 18rem;" >
-                <div class="card-body">
-                  <h5 class="card-title">Cooperative: <%= trade.cooperative.name %></h5>
-                  <%# resolver a questao do id da cooperativa ser preenchido automaticamente no momento da criacao da trade (esta imprimindo o nome da person pq por hora o id gerado pra person e cooperative eh o mesmo) %>
-                  <h6 class="card-subtitle mb-2 text-muted">Status: <%= trade.status %></h6>
-                  <p class="card-text">
-                    Material: <%= trade.material %><br>
-                    Quantity: <%= trade.material %> liters<br>
-                    Created on <%= trade.created_date %><br>
-                    To <%= trade.delivery_method %> on <%= trade.delivery_date %>
-                  </p>
-                  <a href="#" class="card-link">Cancel trade</a>
-                  <a href="#" class="card-link">Another link</a>
-                  <%# colocar as rotas e mudar para link to %>
-                </div>
-              </div>
-            <% end %>
-          </div>
+          <%= render "trades/trades_cards" %>
         <% end %>
     </div>
 
-  <% else %>
-    <%# <% render "profile" %>
+    <div class="container">
+      <h4>List of materials:</h4>
+      <% @materials.each do |material| %>
+      <%= material.name %><br>
+      <% end %>
+    </div>
 
-  # view da home de cooperative
+    <div class="container">
+      <h4>All the cooperatives close to you:</h4>
+    </div>
+
+  <% else %>
+    <%# view da home da cooperativa %>
+    <%# <% render "profile" ? %>
 
   <% end %>
 </div>
