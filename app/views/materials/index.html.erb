@@ -1,0 +1,11 @@
+<div class="container my-5">
+  <h1 class="mb-3">Recycle these materials!</h1>
+  <div class="row justify-content-center">
+    <% @materials.each do |material| %>
+      <%= render 'material', material: material %>
+    <% end %>
+  </div>
+  <% @materials.each do |material| %>
+    <%= render 'material-modal', material: material %>
+  <% end %>
+</div>

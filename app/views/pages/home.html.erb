@@ -1,4 +1,4 @@
-<% if current_user.person? %>
+<% if current_user&.person? %>
 
 
   <h1>Hi <%= current_user.name %></h1>
@@ -8,8 +8,10 @@
     <%= trade.cooperative.name %>
   <% end %>
 
-<% else %>
+<% elsif current_user&.cooperative? %>
 
 # view da home de cooperative
 
+<% else %>
+  No user here
 <% end %>

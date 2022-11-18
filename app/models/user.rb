@@ -20,5 +20,4 @@ class User < ApplicationRecord
   def person?
     role == "person"
   end
-
 end
