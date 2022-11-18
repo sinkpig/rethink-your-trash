@@ -1,1 +1,7 @@
 <h1>Available cooperatives<h1>
+
+<div>
+  <% @cooperatives.each do |cooperative| %>
+    <%= render 'cooperative', cooperative: cooperative %>
+  <% end %>
+</div>
