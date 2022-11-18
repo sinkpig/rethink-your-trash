@@ -1,0 +1,14 @@
+<div class="modal fade" id="<%= material.name.downcase %>" tabindex="-1" aria-labelledby="<%= material.name.downcase %>" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <%= image_tag "icon_#{material.name.downcase}.png", class: "mb-3", width: "50px" %>
+        <h5 class="modal-title"><%= material.name %></h5>
+        <p><%= material.description %></p>
+        <h5 class="mb-3">Cooperatives that work with <%= material.name %></h5>
+        <%# Add map with markers %>
+      </div>
+    </div>
+  </div>
+</div>

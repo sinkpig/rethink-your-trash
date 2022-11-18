@@ -12,8 +12,8 @@ User.destroy_all
 Material.destroy_all
 puts 'End'
 puts 'Creating a person 1'
-user = User.create(name: "Juju", email: "test@test.com", password: "123123", password_confirmation: "123123",
-            address: "Avenida Paulista, 1811 - Bela Vista, São Paulo - SP, 01311-200, Brazil", role: "person")
+User.create(name: "Juju", email: "test@test.com", password: "123123", password_confirmation: "123123",
+                   address: "Avenida Paulista, 1811 - Bela Vista, São Paulo - SP, 01311-200, Brazil", role: "person")
 puts 'End'
 puts 'Creating a cooperative 1'
 User.create(name: "Cooperativa Paulista de Teatro",
@@ -43,7 +43,7 @@ User.create(name: "Bem Estar Reciclagem",
             description: Faker::Quotes::Chiquito.sentence)
 puts 'End'
 puts 'Creating materials'
-material = Material.create(name: "Paper", description: Faker::Lorem.sentence)
+Material.create(name: "Paper", description: Faker::Lorem.sentence)
 Material.create(name: "Plastic", description: Faker::Lorem.sentence)
 Material.create(name: "Metal", description: Faker::Lorem.sentence)
 Material.create(name: "Batteries", description: Faker::Lorem.sentence)
