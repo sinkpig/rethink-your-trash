@@ -1,17 +1,35 @@
 <% if current_user&.person? %>
-
-
   <h1>Hi <%= current_user.name %></h1>
 
-  <h2>See your current trades here:</h2>
-  <% @trades.each do |trade| %>
-    <%= trade.cooperative.name %>
-  <% end %>
+  <div class="container">
+    <h4>Your trades:</h4>
+      <% if @trades == 0 %>
+        <p>You don't have any opened trades</p>
+      <% else %>
+        <%= render "trades/trades_cards" %>
+      <% end %>
+  </div>
 
+  <div class="container">
+    <h4>List of materials:</h4>
+    <% @materials.each do |material| %>
+    <%= material.name %><br>
+    <% end %>
+  </div>
+
+  <div class="container">
+    <h4>All the cooperatives close to you:</h4>
+
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
 <% elsif current_user&.cooperative? %>
-
-# view da home de cooperative
-
+  <%# view da home da cooperativa %>
+  <%# <% render "profile" ? %>
+  view da home de cooperative
 <% else %>
   No user here
 <% end %>

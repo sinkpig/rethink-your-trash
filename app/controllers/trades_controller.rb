@@ -7,6 +7,7 @@ class TradesController < ApplicationController
 
   def create
     @trade = Trade.new(trade_params)
+    @trade.created_date = DateTime.now
     @trade.status = "Pending"
     @trade.person = current_user
     @trade.cooperative = User.find(params[:user_id])

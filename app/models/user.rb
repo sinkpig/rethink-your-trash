@@ -8,6 +8,9 @@ class User < ApplicationRecord
   validates :description, presence: true, if: :cooperative?
   has_many :trades
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   enum role: {
     person: "person",
     cooperative: "cooperative"
