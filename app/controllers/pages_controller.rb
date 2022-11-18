@@ -5,11 +5,19 @@ class PagesController < ApplicationController
     if current_user.person?
       @trades = Trade.where(person_id: current_user.id, status: ["In progress", "Pending"]).limit(5)
       @materials = Material.all
-      #map with cooperatives
-      #wallet
-   else
+      @cooperatives = User.where(role: "cooperative")
+      @markers = @cooperatives.geocoded.map do |cooperative|
+        {
+          lat: cooperative.latitude,
+          lng: cooperative.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { cooperative: }),
+          image_url: helpers.asset_url("marker_cooperative.png")
+        }
+      end
+      #fazer a wallet
+    else
       @trades = Trade.where(cooperative_id: current_user.id)
-   end
+    end
   end
 
   def profile

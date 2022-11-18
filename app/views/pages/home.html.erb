@@ -20,9 +20,17 @@
 
     <div class="container">
       <h4>All the cooperatives close to you:</h4>
+
+      <div style="width: 100%; height: 600px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+
     </div>
 
   <% else %>
+    <p>renderizar a view de profile nesta pagina</p>
     <%# view da home da cooperativa %>
     <%# <% render "profile" ? %>
 
