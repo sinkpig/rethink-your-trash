@@ -1,21 +1,27 @@
-<div class="container">
-
-  <h1><%= current_user.name %></h1>
-
-  <%= button_to "delete your account"%>
+  <div class="container">
+    <h1><%= current_user.name %></h1>
+    <a href="#" class="card-link">delete your profille</a>
+  </div>
 
   <% if current_user.cooperative? %>
     <h3><%= current_user.description %></h3>
-    <h3><%= @material.name %></h3>
   <% end %>
 
   <%# SHOW ALL TRADES %>
-  <h2><%= @trades %></h2>
+  <div class="container">
+    <h4>Your trades:</h4>
+      <% if @trades == 0 %>
+        <p>You don't have any opened trades</p>
+      <% else %>
+        <%# IF COOPERATIVE, EDIT TRADES STATUS %>
+        <%= render "trades/trades_cards" %>
+      <% end %>
+  </div>
 
-  <%# IF COOPERATIVE, EDIT TRADES STATUS %>
-  <% if current_user.cooperative? %>
-    <%= button_to  "Edit the status of trade"%>
-  <% end %>
   <%# IF PERSON, SHOW COINS %>
 
-</div>
+  <div class="container">
+    <% if current_user.person?%>
+      <p>Your wallet:</p>
+    <% end %>
+  </div>

@@ -12,7 +12,11 @@
                     To <%= trade.delivery_method %> on <%= trade.delivery_date %>
                   </p>
                   <a href="#" class="card-link">Cancel trade</a>
-                  <a href="#" class="card-link">Another link</a>
+                  <% if current_user.cooperative?%>
+                    <a href="#" class="card-link">Edit trade status</a>
+                  <% else %>
+                    <a href="#" class="card-link">Another link</a>
+                  <% end %>
                   <%# colocar as rotas e mudar para link to %>
                 </div>
               </div>
