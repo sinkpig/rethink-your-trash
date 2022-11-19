@@ -20,6 +20,7 @@ class PagesController < ApplicationController
     @trades = current_user.trades
     # @wallet = current.user.wallet.value
     # @materials = ???
+    @material = Material.find(30)
   end
 
   private

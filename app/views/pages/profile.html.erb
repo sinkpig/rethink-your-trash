@@ -1,8 +1,21 @@
-<div class="bg-info rounded-circle" width="20px" height="20px"></div>
-<h1><%= current_user.name %></h1>
-<% if current_user.cooperative? %>
-  <h6><%= current_user.description %></h6>
-<% end %>
-<%# SHOW ALL TRADES %>
-<%# IF COOPERATIVE, EDIT TRADES STATUS %>
-<%# IF PERSON, SHOW COINS %>
+<div class="container">
+
+  <h1><%= current_user.name %></h1>
+
+  <%= button_to "delete your account"%>
+
+  <% if current_user.cooperative? %>
+    <h3><%= current_user.description %></h3>
+    <h3><%= @material.name %></h3>
+  <% end %>
+
+  <%# SHOW ALL TRADES %>
+  <h2><%= @trades %></h2>
+
+  <%# IF COOPERATIVE, EDIT TRADES STATUS %>
+  <% if current_user.cooperative? %>
+    <%= button_to  "Edit the status of trade"%>
+  <% end %>
+  <%# IF PERSON, SHOW COINS %>
+
+</div>
