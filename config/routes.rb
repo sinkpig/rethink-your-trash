@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/profile", to: "pages#profile"
 
-  resources :trades, only: %i[destroy]
-  resources :materials, only: %i[index]
-  resources :users, only: %i[index show] do
+  resources :cooperatives, only: %i[index show] do
     resources :trades, only: %i[new create]
   end
+  resources :trades, only: %i[destroy]
+  resources :materials, only: %i[index]
 end
 
 # cooperatives must be able to edit only trade status

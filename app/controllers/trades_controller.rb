@@ -2,7 +2,7 @@ class TradesController < ApplicationController
 
   def new
     @trade = Trade.new
-    @cooperative = User.find(params[:user_id])
+    @cooperative = User.find(params[:cooperative_id])
   end
 
   def create
@@ -10,7 +10,7 @@ class TradesController < ApplicationController
     @trade.created_date = DateTime.now
     @trade.status = "Pending"
     @trade.person = current_user
-    @trade.cooperative = User.find(params[:user_id])
+    @trade.cooperative = User.find(params[:cooperative_id])
 
     if @trade.save!
       redirect_to root_path

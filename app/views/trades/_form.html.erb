@@ -1,6 +1,6 @@
 <h1>Create a new trade</h1>
 
-<%= simple_form_for [@cooperative, @trade] do |f| %>
+<%= simple_form_for [@cooperative, @trade], url: cooperative_trades_path do |f| %>
   <%= f.association :material %>
   <%= f.input :material_quantity %>
   <%= f.input :delivery_method, collection: ["Pickup", "Drop off"] %>
