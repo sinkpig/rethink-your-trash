@@ -1,0 +1,7 @@
+<h1>Available cooperatives<h1>
+
+<div class="card">
+  <% @cooperatives.each do |cooperative| %>
+    <%= render 'cooperative', cooperative: cooperative %>
+  <% end %>
+</div>
