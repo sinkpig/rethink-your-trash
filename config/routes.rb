@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :cooperatives, only: %i[index show] do
     resources :trades, only: %i[new create]
+    # patch :change_status_to_in_progress, on: :member
+
   end
   resources :trades, only: %i[destroy]
   resources :materials, only: %i[index]

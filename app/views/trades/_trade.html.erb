@@ -1,6 +1,6 @@
 <div class="card" style="width: 25%;" >
   <div class="card-body">
-    <h5 class="card-title">Cooperative: <%= trade.cooperative.name %></h5>
+    <h5 class="card-title"><%= trade.cooperative.name %></h5>
     <%# resolver a questao do id da cooperativa ser preenchido automaticamente no momento da criacao da trade (esta imprimindo o nome da person pq por hora o id gerado pra person e cooperative eh o mesmo) %>
     <h6 class="card-subtitle mb-2 text-muted">Status: <%= trade.status %></h6>
     <p class="card-text">
@@ -9,10 +9,22 @@
       Created on <%= trade.created_date %><br>
       To <%= trade.delivery_method %> on <%= trade.delivery_date %>
     </p>
-    <%= button_to "Cancel this trade", trade_path(trade), method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
-    <% if current_user&.cooperative? %>
-      <%= link_to "Accept trade", root_path %>
+
+    <% if current_user&.person? %>
+      <p>Have you changed your mind?</p>
+      <%= button_to "Cancel this trade", trade_path(trade), method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
+    <% elsif current_user&.cooperative? %>
+      <%# <%= link_to change_status_to_in_progress_profile_path(@cooperative), data: {turbo_method: :patch } do %> %>
+        Accept
+      <%# <% end %>
+      <%# <%= link_to "Finish", profile_path %>
+      <%# <%= link_to "Deny", profile_path %>
     <% end %>
-  <%# arrumar o id de cooperative na trade %>
+
+          <%# <%= link_to change_availability_to_true_book_path(@book), class: "btn btn-outline-success mt-3", data: {turbo_method: :patch } do %> %>
+            <%# <i class="fa-regular fa-circle-check"></i> %>
+            <%# Make available %>
+          <%# <% end %> 
+
   </div>
 </div>

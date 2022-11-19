@@ -42,7 +42,29 @@ class TradesController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  # def change_status_to_in_progress
+  #   @cooperative = User.find(params[:cooperative_id])
+  #   @trade.status = "In progress"
+  #   @trade.save!
+  #   redirect_to profile_path(@cooperative)
+  # end
+
+  # def change_status_to_finished
+  #   @cooperative = User.find(params[:cooperative_id])
+  #   @trade.status = "Finished"
+  #   @trade.save!
+  #   redirect_to profile_path(@cooperative)
+  # end
+
+  # def change_status_to_denied
+  #   @cooperative = User.find(params[:cooperative_id])
+  #   @trade.status = "Denied"
+  #   @trade.save!
+  #   redirect_to profile_path(@cooperative)
+  # end
+
   private
+
   def trade_params
     params.require(:trade).permit(:material_id, :delivery_date, :material_quantity, :delivery_method)
   end
