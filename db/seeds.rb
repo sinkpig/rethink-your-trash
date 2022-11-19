@@ -52,4 +52,7 @@ Material.create(name: "Organic", description: Faker::Lorem.sentence)
 Material.create(name: "Clothes", description: Faker::Lorem.sentence)
 Material.create(name: "Electronics", description: Faker::Lorem.sentence)
 Material.create(name: "Carton", description: Faker::Lorem.sentence)
+Material.create(name: "Blisters", description: Faker::Lorem.sentence)
+Material.create(name: "Toxic", description: Faker::Lorem.sentence)
+Material.create(name: "Others", description: Faker::Lorem.sentence)
 puts 'End'
