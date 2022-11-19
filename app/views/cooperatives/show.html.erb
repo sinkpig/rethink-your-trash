@@ -1,14 +1,21 @@
-<div class="card text-center">
-  <div class="card-header">
-    <h1><%= @cooperative.name %></h1>
-</div>
+<div class="mx-auto" style="width: 500px;">
 
-<div class="card-body">
+  <h1><%= @cooperative.name %></h1>
 
-<p class="card-text"><%= @cooperative.description %></p>
+    <div class="container-md">
+      <div class="clearfix" >
+        #<img src="..." class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
 
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <button type="button" class="btn btn-primary">Trade with me</button>
+        <p>
+        <%= @cooperative.description %>
+        </p>
+
+        <p>Materials we accept</p>
+
+        <p>Our contacts</p>
+
+        <%= link_to "Trade with me",  new_user_session_path, class: "btn-btn-primary" %>
+
+      </div>
     </div>
-  </div>
 </div>
