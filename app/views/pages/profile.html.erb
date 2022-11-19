@@ -1,11 +1,13 @@
   <div class="container">
     <h1><%= current_user.name %></h1>
-    <a href="#" class="card-link">delete your profille</a>
+    <h5><%= current_user.address %></h5>
   </div>
 
+<div class="container">
   <% if current_user.cooperative? %>
     <h3><%= current_user.description %></h3>
   <% end %>
+</div>
 
   <%# SHOW ALL TRADES %>
   <div class="container">
