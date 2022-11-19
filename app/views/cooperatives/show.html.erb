@@ -1,0 +1,21 @@
+<div class="mx-auto" style="width: 500px;">
+
+  <h1><%= @cooperative.name %></h1>
+
+    <div class="container-md">
+      <div class="clearfix" >
+        #<img src="..." class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
+
+        <p>
+        <%= @cooperative.description %>
+        </p>
+
+        <p>Materials we accept</p>
+
+        <p>Our contacts</p>
+
+        <%= link_to "Trade with me",  new_user_session_path, class: "btn-btn-primary" %>
+
+      </div>
+    </div>
+</div>
