@@ -1,7 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <span class="badge rounded-pill text-bg-secondary">Logo</span>
+      <span class="mb-0">Take my trash</span>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,9 +10,9 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto align-items-center">
         <% if user_signed_in? && current_user.person? %>
-          <li class="nav-item active">
+          <li class="nav-item">
             <%= link_to "My trades", profile_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
@@ -20,40 +21,54 @@
           <li class="nav-item">
             <%= link_to "Cooperatives", users_path, class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown-center">
+          <%# TODO: add notifications %>
+
+          <%# <li class="nav-item dropdown-center">
             <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">N</a>
             <ul class="dropdown-menu" style="left: -166px;">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">Notification 1</a></li>
+              <li><a class="dropdown-item" href="#">Notification 2</a></li>
             </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          </li> %>
+          <li class="nav-item dropdown dropdown-toggle ms-4" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+            <%= current_user.name %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My profile", profile_path, class: "dropdown-item" %>
+              <%= link_to "Profile", profile_path, class: "dropdown-item" %>
               <div class="d-flex justify-content-between dropdown-item">
                 <p class="mb-0">Wallet:</p>
-                <p class="mb-0">0 coins</p>
+                <p class="mb-0">0 <i class="fa-solid fa-coins text-warning"></i></p>
               </div>
-              <%= link_to "Rewards", "#", class: "dropdown-item", disabled: true %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "#", class: "dropdown-item", disabled: true do %>
+                <i class="fa-solid fa-gift text-muted"></i> Rewards
+              <% end %>
+              <div class="dropdown-item py-0"><hr class="my-1"></div>
+              <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item text-danger" do %>
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Log out
+              <% end %>
             </div>
           </li>
         <% elsif user_signed_in? && current_user.cooperative? %>
-          <li class="nav-item active">
-            <%= link_to "My trades", profile_path, class: "nav-link" %>
+          <li class="nav-item px-2 fw-bold">
+            <%= current_user.name %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My profile", profile_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "Dashboard", root_path, class: "dropdown-item" %>
+              <div class="dropdown-item py-0"><hr class="my-1"></div>
+              <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item text-danger" do %>
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Log out
+              <% end %>
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <li class="nav-item px-2">
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link btn btn-primary text-white" %>
+          </li>
+          <li class="nav-item px-2">
+            <%= link_to "Log in", new_user_session_path, class: "nav-link btn btn-secondary text-white" %>
           </li>
         <% end %>
       </ul>
