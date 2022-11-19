@@ -1,7 +1,11 @@
 <h1>Available cooperatives<h1>
 
-<div class="card">
-  <% @cooperatives.each do |cooperative| %>
-    <%= render 'cooperative', cooperative: cooperative %>
-  <% end %>
+<div class="container overflow-hidden">
+  <div class="row g-2">
+    <div class="col">
+      <% @cooperatives.each do |cooperative| %>
+        <%= render 'cooperative', cooperative: cooperative %>
+      <% end %>
+    </div>
+  </div>
 </div>
