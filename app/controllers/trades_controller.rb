@@ -39,7 +39,7 @@ class TradesController < ApplicationController
   def destroy
     trade = Trade.find(params[:id])
     trade.destroy
-    redirect_to root, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private
