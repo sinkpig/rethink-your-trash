@@ -6,7 +6,7 @@
 
         <div class="container my-4">
           <h4>Your trades:</h4>
-            <% if @trades == 0 %>
+            <% if @trades.count == 0 %>
               <p>You don't have any opened trades</p>
             <% else %>
               <div class="d-flex flex-row">
@@ -30,8 +30,8 @@
                 </div>
               </div>
             <% end %>
-            <%= button_to "Check full list here", materials_path %>
           </div>
+          <%= link_to "Check full list here", materials_path, class: "btn btn-primary rounded-pill" %>
         </div>
 
         <div class="container my-5">
@@ -47,7 +47,7 @@
           <h1>Hi <%= current_user.name %></h1>
           <div class="container">
             <h4>Your trades:</h4>
-              <% if @trades == 0 %>
+              <% if @trades.count == 0 %>
                 <p>You don't have any trades</p>
               <% else %>
                 <% @trades.each do |trade| %>

@@ -1,1 +1,19 @@
 // Specific CSS for your home-page
+body,
+.navbar .nav-item .nav-link:hover,
+.dropdown-item,
+.navbar .nav-item .nav-link.btn {
+  color:$gray;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+.navbar .nav-item .nav-link {
+  color: $purple;
+}
+.dropdown-item:hover {
+  background-color: #B9F0FF;
+}
+.navbar .nav-item .nav-link.btn:hover {
+  color: $white;
+}

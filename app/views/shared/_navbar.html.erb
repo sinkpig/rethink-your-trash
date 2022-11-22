@@ -1,8 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <span class="badge rounded-pill text-bg-secondary">Logo</span>
-      <span class="mb-0">Take my trash</span>
+  <div class="container">
+    <%= link_to root_path, class: "navbar-brand p-0" do %>
+      <%= image_tag "logo.png", style: "height: 60px;width: auto;" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,20 +25,20 @@
           <%# TODO: add notifications %>
           <li class="nav-item dropdown ms-4">
             <a class="nav-link dropdown-toggle fw-bold" style="cursor: pointer;" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar me-2" %>
               <%= current_user.name %>
             </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-end border-0" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", profile_path, class: "dropdown-item" %>
               <div class="d-flex justify-content-between dropdown-item">
                 <p class="mb-0">Wallet:</p>
-                <p class="mb-0">0 <i class="fa-solid fa-coins text-warning"></i></p>
+                <p class="mb-0">0 <i class="fa-solid fa-coins text-info"></i></p>
               </div>
               <%= link_to "#", class: "dropdown-item", disabled: true do %>
                 <i class="fa-solid fa-gift text-muted"></i> Rewards
               <% end %>
               <div class="dropdown-item py-0"><hr class="my-1"></div>
-              <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item text-danger" do %>
+              <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" do %>
                 <i class="fa-solid fa-arrow-right-from-bracket"></i> Log out
               <% end %>
             </div>
@@ -54,17 +53,11 @@
             <a class="nav-link dropdown-toggle fw-bold" style="cursor: pointer;" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
             </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-end border-0" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", profile_path, class: "dropdown-item" %>
-              <div class="d-flex justify-content-between dropdown-item">
-                <p class="mb-0">Wallet:</p>
-                <p class="mb-0">0 <i class="fa-solid fa-coins text-warning"></i></p>
-              </div>
-              <%= link_to "#", class: "dropdown-item", disabled: true do %>
-                <i class="fa-solid fa-gift text-muted"></i> Rewards
-              <% end %>
+              <%= link_to "Dashboard", root_path, class: "dropdown-item" %>
               <div class="dropdown-item py-0"><hr class="my-1"></div>
-              <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item text-danger" do %>
+              <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" do %>
                 <i class="fa-solid fa-arrow-right-from-bracket"></i> Log out
               <% end %>
             </div>
@@ -73,10 +66,10 @@
         <% else %>
 
           <li class="nav-item px-2">
-            <%= link_to "Sign up", new_user_registration_path, class: "nav-link btn btn-primary text-white" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link btn btn-success text-white" %>
           </li>
           <li class="nav-item px-2">
-            <%= link_to "Log in", new_user_session_path, class: "nav-link btn btn-secondary text-white" %>
+            <%= link_to "Log in", new_user_session_path, class: "nav-link btn btn-outline-secondary" %>
           </li>
 
         <% end %>
