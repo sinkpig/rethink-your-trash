@@ -1,60 +1,63 @@
+<% if current_user&.person? %>
+  <div class="bg-success">
+    <div class="container-fluid py-3">
+      <div class="row g-3 justify-content-center align-items-center">
+        <% @materials.each do |material| %>
+          <div class="col-1">
+            <div class="card justify-content-center text-center border-0" style="background-color: transparent;">
+              <div class="card-body p-1">
+                <div class="d-inline-flex">
+                  <div class="d-flex align-items-center justify-content-center mb-2 bg-white rounded-circle" style="width: 50px; height: 50px;">
+                    <%= image_tag "icon_#{material.name.downcase}.png", width: "30px" %>
+                  </div>
+                </div>
+                <h6 class="card-title mb-0"><%= material.name %></h5>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="col-auto">
+          <%= link_to materials_path, class: "btn btn-primary rounded-3" do %>
+            More materials <i class="fa-solid fa-angle-right"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-10">
       <% if current_user&.person? %>
         <h1 class="mt-4">Hi <%= current_user.name %></h1>
-
-        <div class="container my-4">
-          <h4>Your trades:</h4>
-            <% if @trades.count == 0 %>
-              <p>You don't have any opened trades</p>
-            <% else %>
-              <div class="d-flex flex-row">
-                <% @trades.each do |trade| %>
-                  <%= render "trades/trade", trade: trade %>
-                <% end %>
-              </div>
-            <% end %>
-        </div>
-
-        <div class="container my-4">
-          <h4>Recyclable materials:</h4>
-          <div class="row justify-content-center">
-            <% @materials.each do |material| %>
-              <div class="col-2 mb-3">
-                <div class="card text-center border-0">
-                  <div class="card-body">
-                    <%= image_tag "icon_#{material.name.downcase}.png", class: "mb-3", width: "30px" %>
-                    <h6 class="card-title fw-bold"><%= material.name %></h5>
-                  </div>
-                </div>
-              </div>
+        <h4>Your trades:</h4>
+        <% if @trades.count == 0 %>
+          <p>You don't have any opened trades</p>
+        <% else %>
+          <div class="d-flex flex-row">
+            <% @trades.each do |trade| %>
+              <%= render "trades/trade", trade: trade %>
             <% end %>
           </div>
-          <%= link_to "Check full list here", materials_path, class: "btn btn-primary rounded-pill" %>
-        </div>
+        <% end %>
 
-        <div class="container my-5">
-          <h4>All the cooperatives close to you:</h4>
-          <div style="width: 100%; height: 500px;"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
+        <h4>All the cooperatives close to you:</h4>
+        <div style="width: 100%; height: 500px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
 
       <% elsif current_user&.cooperative? %>
-          <h1>Hi <%= current_user.name %></h1>
-          <div class="container">
-            <h4>Your trades:</h4>
-              <% if @trades.count == 0 %>
-                <p>You don't have any trades</p>
-              <% else %>
-                <% @trades.each do |trade| %>
-                  <%= render "trades/trade", trade: trade %>
-                <% end %>
-              <% end %>
-          </div>
+        <h1>Hi <%= current_user.name %></h1>
+        <h4>Your trades:</h4>
+        <% if @trades.count == 0 %>
+          <p>You don't have any trades</p>
+        <% else %>
+          <% @trades.each do |trade| %>
+            <%= render "trades/trade", trade: trade %>
+          <% end %>
+        <% end %>
         <%# view da home da cooperativa %>
         <%# <% render "profile" ? %>
 
@@ -63,7 +66,6 @@
         <h3>What would you like to do next?</h3>
         <%= link_to "Log in", new_user_session_path %>
         <%= link_to "Register", new_user_registration_path %>
-
       <% end %>
     </div>
   </div>
