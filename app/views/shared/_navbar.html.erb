@@ -14,7 +14,7 @@
         <% if user_signed_in? && current_user.person? %>
 
           <li class="nav-item">
-            <%= link_to "My trades", profile_path, class: "nav-link" %>
+            <%= link_to "My trades", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Materials", materials_path, class: "nav-link" %>

@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def home
     if current_user&.person?
       @trades = Trade.where(person_id: current_user.id, status: ["In progress", "Pending"]).limit(4)
-      @materials = Material.all.sample(6)
+      @materials = Material.all.sample(8)
       map
       # fazer a wallet
     elsif current_user&.cooperative?
