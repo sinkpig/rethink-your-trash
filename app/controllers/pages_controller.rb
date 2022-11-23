@@ -17,9 +17,8 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @trades = current_user.trades
+    @trades = Trade.where(person_id: current_user.id, status: ["In progress", "Pending"]).limit(5)
     # @wallet = current.user.wallet.value
-    # @materials = ???
   end
 
   private

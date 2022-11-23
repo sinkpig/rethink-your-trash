@@ -1,8 +1,29 @@
-<div class="bg-info rounded-circle" width="20px" height="20px"></div>
-<h1><%= current_user.name %></h1>
-<% if current_user.cooperative? %>
-  <h6><%= current_user.description %></h6>
-<% end %>
-<%# SHOW ALL TRADES %>
-<%# IF COOPERATIVE, EDIT TRADES STATUS %>
-<%# IF PERSON, SHOW COINS %>
+  <div class="container">
+    <h1><%= current_user.name %></h1>
+    <h5><%= current_user.address %></h5>
+  </div>
+
+<div class="container">
+  <% if current_user.cooperative? %>
+    <h3><%= current_user.description %></h3>
+  <% end %>
+</div>
+
+  <%# SHOW ALL TRADES %>
+  <div class="container">
+    <h4>Your trades:</h4>
+      <% if @trades == 0 %>
+        <p>You don't have any opened trades</p>
+      <% else %>
+        <%# IF COOPERATIVE, EDIT TRADES STATUS %>
+        <%= render "trades/trades_cards" %>
+      <% end %>
+  </div>
+
+  <%# IF PERSON, SHOW COINS %>
+
+  <div class="container">
+    <% if current_user.person?%>
+      <p>Your wallet:</p>
+    <% end %>
+  </div>
