@@ -1,4 +1,5 @@
 class TradesController < ApplicationController
+  before_action :set_trade, only: %i[show edit update destroy]
 
   def new
     @trade = Trade.new
@@ -21,11 +22,11 @@ class TradesController < ApplicationController
   end
 
   def show
-    @trade = Trade.find(params[:id])
   end
 
   def update
     if @trade.update(trade_params)
+      flash[:notice] = "Successfully changed status"
       redirect_to root_path
     else
       render :edit, status: :unprocessable_entity
@@ -33,18 +34,20 @@ class TradesController < ApplicationController
   end
 
   def edit
-    @trade = Trade.find(params[:id])
   end
 
   def destroy
-    trade = Trade.find(params[:id])
     trade.destroy
     redirect_to root_path, status: :see_other
   end
 
   private
+
   def trade_params
-    params.require(:trade).permit(:material_id, :delivery_date, :material_quantity, :delivery_method)
+    params.require(:trade).permit(:material_id, :delivery_date, :material_quantity, :delivery_method, :status)
   end
 
+  def set_trade
+    @trade = Trade.find(params[:id])
+  end
 end

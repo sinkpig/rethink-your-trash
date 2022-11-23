@@ -3,7 +3,7 @@
 <%= simple_form_for [@cooperative, @trade], url: cooperative_trades_path do |f| %>
   <%= f.association :material %>
   <%= f.input :material_quantity %>
-  <%= f.input :delivery_method, collection: ["Pickup", "Drop off"] %>
+  <%= f.input :delivery_method, collection: ["Pick up", "Drop off"] %>
   <%= f.input :delivery_date %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
