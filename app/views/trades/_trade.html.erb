@@ -14,17 +14,11 @@
       <p>Have you changed your mind?</p>
       <%= button_to "Cancel this trade", trade_path(trade), method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
     <% elsif current_user&.cooperative? %>
-      <%# <%= link_to change_status_to_in_progress_profile_path(@cooperative), data: {turbo_method: :patch } do %> %>
-        Accept
-      <%# <% end %>
-      <%# <%= link_to "Finish", profile_path %>
-      <%# <%= link_to "Deny", profile_path %>
+        <%= simple_form_for trade do |f| %>
+          <%= f.input :status, collection: ["In Progress", "Denied", "Finished"] %>
+          <%= f.submit "Change status" %>
+          
+        <% end %>
     <% end %>
-
-          <%# <%= link_to change_availability_to_true_book_path(@book), class: "btn btn-outline-success mt-3", data: {turbo_method: :patch } do %> %>
-            <%# <i class="fa-regular fa-circle-check"></i> %>
-            <%# Make available %>
-          <%# <% end %> 
-
   </div>
 </div>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     # patch :change_status_to_in_progress, on: :member
 
   end
-  resources :trades, only: %i[destroy]
+  resources :trades, only: %i[destroy update]
   resources :materials, only: %i[index]
 end
 
