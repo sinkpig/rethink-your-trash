@@ -19,7 +19,7 @@ class PagesController < ApplicationController
   def profile
     @trades = current_user.trades
     # @wallet = current.user.wallet.value
-    # @materials = ???
+    # only cooperatives @materials that they accept
   end
 
   private
