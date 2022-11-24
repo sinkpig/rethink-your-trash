@@ -1,46 +1,61 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.input :name %>
-  </div>
-
-  <div class="field">
-    <%= f.input :address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field" data-controller="show-description-field">
-    <%= f.input :role, collection: User.roles.keys, input_html: { data: { action: "change->show-description-field#show" } } %>
-      <div class="field">
-        <div class="d-none" data-show-description-field-target="description">
-        <%= f.input :description %>
+<div class="row justify-content-center align-items-center vh-100 me-0">
+  <div class="col-6 d-md-block d-none">
+    <div class="bg-success w-100 vh-100">
+      <div class="d-flex align-items-center h-75 ms-5 me-4">
+        <div>
+          <h2 class="text-start" style="font-size: 40px;">Be the change you want to see in the world.</h2>
+          <span class="h4 mb-0" style="font-weight: 400;">Reach out to cooperatives that can recycle your trash</span>
         </div>
       </div>
+    </div>
   </div>
+  <div class="col-md-6 p-5">
+    <h2>Sign up</h2>
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.input :name %>
+      </div>
+
+      <div class="field">
+        <%= f.input :address %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field" data-controller="show-description-field">
+        <%= f.input :role, collection: User.roles.keys, input_html: { data: { action: "change->show-description-field#show" } } %>
+          <div class="field">
+            <div class="d-none" data-show-description-field-target="description">
+            <%= f.input :description %>
+            </div>
+          </div>
+      </div>
 
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+      <div class="actions">
+        <%= f.submit "Sign up", class: "btn btn-primary d-block w-100" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-<% end %>
-<%= render "devise/shared/links" %>
+</div>
