@@ -37,7 +37,7 @@ class TradesController < ApplicationController
   end
 
   def destroy
-    trade.destroy
+    @trade.destroy
     redirect_to root_path, status: :see_other
   end
 
