@@ -32,7 +32,6 @@ class CooperativeMaterialsController < ApplicationController
     end
   end
 
-
   private
 
   def cooperative_material_params
@@ -42,5 +41,4 @@ class CooperativeMaterialsController < ApplicationController
   def set_cooperative
     @cooperative = User.find(params[:cooperative_id])
   end
-
 end
