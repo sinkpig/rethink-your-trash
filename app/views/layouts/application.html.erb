@@ -13,9 +13,13 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
+    <% unless current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
+      <%= render "shared/navbar" %>
+    <% end %>
     <%= render "shared/flashes" %>
     <%= yield %>
-    <%= render "shared/footer" %>
+    <% unless current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
+      <%= render "shared/footer" %>
+    <% end %>
   </body>
 </html>
