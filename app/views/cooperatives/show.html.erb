@@ -1,23 +1,57 @@
-<div class="mx-auto" style="width: 500px;">
+<div class="mx-auto" style="width: 800px;">
 
-  <h2><%= @cooperative.name %></h2>
-
-    <div class="container-md">
-      <div class="clearfix" >
-
-        <% if @cooperative.name == "Cooperativa Água Branca" %>
+  <h1><%= @cooperative.name %></h1>
+    <div class="container">
+        <% if @cooperative.name == "Cooperativa Paulista de Teatro" %>
           <p>We are a cooperative in Sao Paulo/SP made by individual entrepreneurs organized and
           legally constituted in a cooperative with the purpose of collecting,
           segregating and selling recyclable materials, minimizing environmental impacts in the final disposal
           of solid waste.</p>
         <% end %>
+        <% if @cooperative.name == "Ayres Comércio e Reciclagem de Metais" %>
+          <p>Operating in the demanding recycling market, we work
+          in the purchase and sale of a wide variety of ferrous and non-ferrous materials.
+          We offer our customers and suppliers quick service, technology and safe
+          loading and unloading of materials.
+          We value the immediate removal of your material at no cost, working in companies,
+          construction companies and businesses in general. We also work at the night period.
+          Weighing and payment of materials are made immediately in our warehouse.</p>
+        <% end %>
+        <% if @cooperative.email == "c@c.com" %>
+          <p>Our main objective is to act in the three dimensions of sustainable development:
+          economic, social and environmental.
+          The waste we receive generate work and income for people in social vulnerability
+          and who now have recycling as an opportunity for professional training and home support.
+          This same material is what can be separated incorrectly, polluting rivers or ending up in landfills.
+          One of our key jobs is the collection and disposal of glass, working on two fronts:
+          food safety and the correct disposal of packaging. By decharacterizing the packaging and sending
+          it to the industry again, its use for counterfeiting beverages and foodstuffs is avoided.</p>
+        <% end %>
+        <% if @cooperative.email == "d@d.com" %>
+          <p>We are a start-up dedicated to valuing recyclable solid waste
+          and sustainability, which operates in the management and selective collection
+          of condominiums in São Paulo and sustainability projects for companies.</p>
+        <% end %>
 
-        <p>Accepted materials</p>
+        <h3>Accepted materials</h3>
+          <% if @cooperative.name == "Cooperativa Paulista de Teatro" %>
+            <%# show icons for 4 different types of materials %>
+          <% end %>
+          <% if @cooperative.name == "Ayres Comércio e Reciclagem de Metais" %>
+            <%# show icons for metal and other 3 types of materials %>
+          <% end %>
+          <% if @cooperative.email == "c@c.com" %>
+            <%# show icons for glass and other 3 types of materials %>
+          <% end %>
+          <% if @cooperative.email == "d@d.com" %>
+            <%# show icons for 4 different types of materials %>
+          <% end %>
 
-        <p>Our contacts</p>
+        <h5>Our contacts</h5>
+          <%# show icons for facebook, instagram, twitter, my website etc %>
 
-        <%= link_to "Trade with me",  new_cooperative_trade_path(@cooperative), class: "btn-btn-primary" %>
+        <%= button_to "Trade with me",  new_cooperative_trade_path(@cooperative), class: "btn btn-outline-secondary" %>
 
       </div>
-    </div>
+
 </div>
