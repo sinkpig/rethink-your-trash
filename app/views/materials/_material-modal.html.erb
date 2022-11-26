@@ -1,64 +1,69 @@
 <div class="modal fade" id="<%= material.name.downcase %>" tabindex="-1" aria-labelledby="<%= material.name.downcase %>" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
-      <div class="modal-body text-center">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <%= image_tag "icon_#{material.name.downcase}.png", class: "mb-3", width: "50px" %>
-        <h5 class="modal-title"><%= material.name %></h5>
-        #<p><%= material.description %></p>
+      <div class="modal-body">
+        <div class="d-flex justify-content-between">
+          <div>
+            <%= image_tag "icon_#{material.name.downcase}.png", class: "d-inline-block", width: "50px" %>
+            <h4 class="modal-title d-inline"><%= material.name %></h4>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <hr>
+        <p><%= material.description %></p>
         <% if material.name == "Paper" %>
           <p>Paper recycling is the circular process of turning old waste paper into new paper,
           this recycling and producing process is called papermaking. Paper is a 100% natural and
           recyclable resource made of wood fibers. Therefore paper waste is the most important ingredient
           for the process of creating new paper and cardboard products.</p>
-          <div>
-            <h6>What paper can you recycle?</h6>
-              <li>Cardbard</li>
-              <li>Newspaper</li>
-              <li>Magazine</li>
-              <li>Catalogs</li>
-              <li>Paperboard boxes</li>
-              <li>White office paper</li>
-          </div>
-          <div class="p-3">
-            <h6>What paper is not recyclable?</h6>
-              <li>Coated and treated paper</li>
-              <li>Receipts and other laser printed papers</li>
-              <li>Photos</li>
-              <li>Paper containing food waste</li>
-              <li>Towels, napkins, and tissue paper</li>
-              <li>Laminated paper, wax paper, and foil-coated paper</li>
-              <li>Paper that is soiled or contaminated with oil, grease, or chemicals</li>
-              <li>Used wallpaper containing glue residues</li>
-          </div>
+          <h5 class="text-primary">What paper can you recycle?</h5>
+          <ul class="recycle-list">
+            <li>Cardbard</li>
+            <li>Newspaper</li>
+            <li>Magazine</li>
+            <li>Catalogs</li>
+            <li>Paperboard boxes</li>
+            <li>White office paper</li>
+          </ul>
+          <h5 class="text-primary">What paper is not recyclable?</h5>
+          <ul class="recycle-list">
+            <li>Coated and treated paper</li>
+            <li>Receipts and other laser printed papers</li>
+            <li>Photos</li>
+            <li>Paper containing food waste</li>
+            <li>Towels, napkins, and tissue paper</li>
+            <li>Laminated paper, wax paper, and foil-coated paper</li>
+            <li>Paper that is soiled or contaminated with oil, grease, or chemicals</li>
+            <li>Used wallpaper containing glue residues</li>
+          </ul>
         <% end %>
         <% if material.name == "Plastic" %>
           <p>Plastic is a popular and highly versatile material, and we use a lot of it.
           Re-using and recycling items as many times as possible can reduce our need to create new plastic.
           Any plastic material with food residues on (or in) it cannot be recycled.
           So, remember to always clean your recyclable products!</p>
-          <div>
-            <h6>What plastics can you recycle?</h6>
-              <li>Plastic bottles, pots, tubs and trays</li>
-              <li>Plastic bags and wrappings</li>
-              <li>Polystyrene foam</li>
-              <li>Shampoo bottles</li>
-              <li>Some car parts</li>
-          </div>
-          <div class="p-3">
-            <h6>What plastics are not recyclable?</h6>
-              <li>Plastic bags</li>
-              <li>Straws</li>
-              <li>Keyboards</li>
-              <li>Blister packaging</li>
-              <li>Thermoset plastics (epoxy, silicone, polyurethane and phenolic)</li>
-              <li>Laminated paper, wax paper, and foil-coated paper</li>
-              <li>Paper that is soiled or contaminated with oil, grease, or chemicals</li>
-              <li>Used wallpaper containing glue residues</li>
-          </div>
+          <h6>What plastics can you recycle?</h6>
+          <ul class="recycle-list">
+            <li>Plastic bottles, pots, tubs and trays</li>
+            <li>Plastic bags and wrappings</li>
+            <li>Polystyrene foam</li>
+            <li>Shampoo bottles</li>
+            <li>Some car parts</li>
+          </ul>
+          <h6>What plastics are not recyclable?</h6>
+          <ul class="recycle-list">
+            <li>Plastic bags</li>
+            <li>Straws</li>
+            <li>Keyboards</li>
+            <li>Blister packaging</li>
+            <li>Thermoset plastics (epoxy, silicone, polyurethane and phenolic)</li>
+            <li>Laminated paper, wax paper, and foil-coated paper</li>
+            <li>Paper that is soiled or contaminated with oil, grease, or chemicals</li>
+            <li>Used wallpaper containing glue residues</li>
+          </ul>
         <% end %>
         <h5 class="mb-3">Cooperatives that work with <%= material.name %></h5>
-        <%# Add map with markers %>
+        <%# Add cooperative links %>
       </div>
     </div>
   </div>
