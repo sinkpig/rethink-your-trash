@@ -1,16 +1,18 @@
-
-
-<div class="card mb-2" style="max-width: 800px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      #<img src="..." class="img-fluid rounded-start" alt="...">
-    </div>
-
-    <div class="col-md-6">
-      <div class="card-body">
-      <%= link_to cooperative.name, cooperative_path(cooperative) %>
-
-        <h5 class="card-text"><%= cooperative.description %></h5>
+<div class="col-lg-6">
+  <div class="card border-0 mb-2" style="max-width: 800px;">
+    <div class="card-body">
+      <div class="d-flex">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar me-3", style: "width: 50px; height: 100%;" %>
+        <div >
+          <%= link_to cooperative_path(cooperative), class: "text-decoration-none stretched-link" do %>
+            <h4 class="card-title"><%= cooperative.name %></h4>
+          <% end %>
+          <h6 class="card-text fw-normal"><%= cooperative.address %>rgver rev 2 wdegbfdf frehtrhgtrgb efawsd wefweger wegerg wergfr ewf few 2eqw fdewfrwg ewfr</h6>
+          <h6>Accepted materials</h6>
+          <% 4.times do %>
+            <span class="badge rounded-circle text-bg-success fs-6">o</span>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
