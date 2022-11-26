@@ -6,7 +6,11 @@
   <td style="vertical-align: middle;"><%= trade.delivery_method %> on <strong><%= trade.delivery_date.strftime("%d %b %Y") %></strong></td>
   <td style="vertical-align: middle;" class="d-flex">
     <% if current_user&.cooperative? %>
-      <%= link_to "Accept trade", root_path, class: "btn btn-success text-white me-3" %>
+      <%# <%= link_to "Accept trade", root_path, class: "btn btn-success text-white me-3" %>
+      <%= simple_form_for trade do |f| %>
+        <%= f.input :status, collection: ["In Progress", "Denied", "Finished"] %>
+        <%= f.submit "Change status" %>
+      <% end %>
     <% end %>
     <%= button_to "Cancel trade", trade_path(trade), class: "btn btn-outline-secondary", method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
   </td>
