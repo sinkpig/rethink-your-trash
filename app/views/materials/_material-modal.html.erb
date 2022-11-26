@@ -5,7 +5,33 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         <%= image_tag "icon_#{material.name.downcase}.png", class: "mb-3", width: "50px" %>
         <h5 class="modal-title"><%= material.name %></h5>
-        <p><%= material.description %></p>
+        #<p><%= material.description %></p>
+        <% if material.name == "Paper" %>
+          <p>Paper recycling is the circular process of turning old waste paper into new paper,
+          this recycling and producing process is called papermaking. Paper is a 100% natural and
+          recyclable resource made of wood fibers. Therefore paper waste is the most important ingredient
+          for the process of creating new paper and cardboard products.</p>
+          <div>
+            <h6>What paper can you recycle?</h6>
+              <li>Cardbard</li>
+              <li>Newspaper</li>
+              <li>Magazine</li>
+              <li>Catalogs</li>
+              <li>Paperboard boxes</li>
+              <li>White office paper</li>
+          </div>
+          <div class="p-3">
+            <h6>What paper is not recyclable?</h6>
+              <li>Coated and treated paper</li>
+              <li>Receipts and other laser printed papers</li>
+              <li>Photos</li>
+              <li>Paper containing food waste</li>
+              <li>Towels, napkins, and tissue paper</li>
+              <li>Laminated paper, wax paper, and foil-coated paper</li>
+              <li>Paper that is soiled or contaminated with oil, grease, or chemicals</li>
+              <li>Used wallpaper containing glue residues</li>
+          </div>
+        <% end %>
         <h5 class="mb-3">Cooperatives that work with <%= material.name %></h5>
         <%# Add map with markers %>
       </div>

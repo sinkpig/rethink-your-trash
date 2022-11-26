@@ -7,11 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
-puts 'Deleting materials, users and trades'
-User.destroy_all
-Material.destroy_all
-Trade.destroy_all
-puts 'End'
+##puts 'Deleting materials, users and trades'
+#User.destroy_all
+##Material.destroy_all
+#Trade.destroy_all
+#puts 'End'
 
 puts 'Creating a person 1'
 person1 = User.create!(name: "Milo", email: "test@test.com", password: "123123", password_confirmation: "123123",
@@ -65,7 +65,7 @@ cooperative4 = User.create!(name: "Bem Estar Reciclagem",
 puts 'End'
 
 puts 'Creating materials'
-material1 = Material.create!(name: "Paper", description: Faker::Lorem.sentence)
+material1 = Material.create!(name: "Paper")
 material2 = Material.create!(name: "Plastic", description: Faker::Lorem.sentence)
 material3 = Material.create!(name: "Metal", description: Faker::Lorem.sentence)
 material4 = Material.create!(name: "Batteries", description: Faker::Lorem.sentence)
