@@ -88,23 +88,25 @@
     <h3 style="font-weight: normal !important; font-size: 30px;">We're here to save the day! Get in touch with cooperatives that recycle the material that you have. Start now!</h3>
     <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg px-5 mt-3" %>
   </div>
-  <div class="py-5">
-    <h2 class="text-center mb-5">Cooperatives that we work with</h2>
+  <div class="container text-center py-5">
+    <h2 class="text-center mb-4">Cooperatives that we work with</h2>
     <div class="row justify-content-center align-items-center">
       <% @cooperatives.each do |cooperative| %>
         <div class="col-2 text-center">
-          <div class="bg-white rounded-circle d-inline-block mb-2 border" style="width: 50px; height: 50px;"></div>
-          <h6><%= cooperative.name %></h6>
+          <%= link_to cooperative_path(cooperative), class: "text-decoration-none" do %>
+            <div class="bg-white rounded-circle d-inline-block mb-2 border" style="width: 50px; height: 50px;"></div>
+            <h6><%= cooperative.name %></h6>
+          <% end %>
         </div>
       <% end %>
     </div>
-  </div>
-  <div class="container text-center px-5 pt-0">
-    <h2 class="mb-5">Here are the closest cooperatives to you</h2>
-    <div class="d-inline-block" style="width: 100%; height: 500px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="mt-5">
+      <h2 class="mb-4">Here are the closest cooperatives to you</h2>
+      <div class="d-inline-block" style="width: 100%; height: 500px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
 <% end %>
