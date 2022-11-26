@@ -1,0 +1,4 @@
+<%= simple_form_for [@cooperative, @cooperative_material], url: cooperative_cooperative_materials_path do |f| %>
+  <%= f.input :material_id, collection: @materials, label_method: :name, value_method: :id %>
+  <%= f.submit "Add" %>
+<% end %>
