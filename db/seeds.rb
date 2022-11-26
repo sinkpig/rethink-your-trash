@@ -66,7 +66,7 @@ puts 'End'
 
 puts 'Creating materials'
 material1 = Material.create!(name: "Paper")
-material2 = Material.create!(name: "Plastic", description: Faker::Lorem.sentence)
+material2 = Material.create!(name: "Plastic")
 material3 = Material.create!(name: "Metal", description: Faker::Lorem.sentence)
 material4 = Material.create!(name: "Batteries", description: Faker::Lorem.sentence)
 Material.create!(name: "Glass", description: Faker::Lorem.sentence)
