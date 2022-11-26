@@ -16,7 +16,9 @@ class TradesController < ApplicationController
     if @trade.save!
       redirect_to root_path
     else
+      # redirect_to new_cooperative_trade_path, notice: "Invalid field"
       render :new, status: :unprocessable_entity
+      # flash.keep[:alert] = "Invalid field"
       #the render shows the fields that must be corrected by the user
     end
   end
