@@ -28,7 +28,7 @@ person4 = User.create!(name: "Vinny", email: "test3@test.com", password: "123123
 puts 'End'
 
 puts 'Creating a cooperative 1'
-cooperative1 = User.create!(name: "Cooperativa Paulista de Teatro",
+cooperative1 = User.create!(name: "Cooperativa Água Branca",
                             email: "a@a.com",
                             password: "123123",
                             password_confirmation: "123123",
@@ -55,7 +55,7 @@ cooperative3 = User.create!(name: "Bem Estar Reciclagem",
                             description: Faker::Quotes::Chiquito.sentence)
 puts 'End'
 puts 'Creating a cooperative 4'
-cooperative4 = User.create!(name: "Bem Estar Reciclagem",
+cooperative4 = User.create!(name: "Cooperativa Viralata",
                             email: "d@d.com",
                             password: "123123",
                             password_confirmation: "123123",
