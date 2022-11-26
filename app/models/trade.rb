@@ -6,5 +6,5 @@ class Trade < ApplicationRecord
   validates :delivery_date, presence: true
   validates :material_quantity, numericality: { only_integer: true }, presence: true
   validates :delivery_method, inclusion: { in: ["Pick up", "Drop off"] }
-  validates :status, inclusion: { in: ["Pending", "Denied", "In progress", "Finished"] }
+  validates :status, inclusion: { in: ["Pending", "Denied", "In Progress", "Finished"] }
 end

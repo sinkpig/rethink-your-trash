@@ -19,9 +19,9 @@
     <div class="pb-5">
       <h4 class="mb-4">Your trades:</h4>
       <% if @trades.count == 0 %>
-        <p><strong class="text-primary">You havent traded anything yet!</strong>
+        <p><strong class="text-primary">You haven't traded anything yet!</strong>
         <br>
-        Want to recycle you materials? Check available cooperatives <%= link_to "here", cooperatives_path %></p>
+        Want to recycle your materials? Check available cooperatives <%= link_to "here", cooperatives_path %></p>
       <% else %>
         <table class="table bg-white" id="trades">
           <thead class="bg-primary text-white">
@@ -31,7 +31,8 @@
               <th scope="col">Quantity</th>
               <th scope="col">Created</th>
               <th scope="col">Delivery method</th>
-              <th scope="col"></th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
               <% if current_user&.cooperative? %>
                 <th scope="col"></th>
               <% end %>
@@ -67,6 +68,7 @@
               <th scope="col">Quantity</th>
               <th scope="col">Created</th>
               <th scope="col">Delivery method</th>
+              <th scope="col">Status</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>

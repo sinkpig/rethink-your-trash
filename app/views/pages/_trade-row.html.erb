@@ -1,17 +1,23 @@
 <tr>
-  <td style="vertical-align: middle;"><strong class="text-danger"><%= trade.cooperative.name %></strong></td>
+  <% if current_user&.cooperative? %>
+    <td style="vertical-align: middle;"><strong class="text-danger"><%= trade.person.name %></strong></td>
+  <% else %>
+    <td style="vertical-align: middle;"><strong class="text-danger"><%= trade.cooperative.name %></strong></td>
+  <% end %>
   <td style="vertical-align: middle;"><%= trade.material.name %></td>
   <td style="vertical-align: middle;"><%= trade.material_quantity %> lt bag</td>
   <td style="vertical-align: middle;"><strong><%= trade.created_date.strftime("%d %b %Y") %></strong></td>
   <td style="vertical-align: middle;"><%= trade.delivery_method %> on <strong><%= trade.delivery_date.strftime("%d %b %Y") %></strong></td>
+  <td style="vertical-align: middle;"><%= trade.status %></td>
   <td style="vertical-align: middle;" class="d-flex">
     <% if current_user&.cooperative? %>
-      <%# <%= link_to "Accept trade", root_path, class: "btn btn-success text-white me-3" %>
       <%= simple_form_for trade do |f| %>
-        <%= f.input :status, collection: ["In Progress", "Denied", "Finished"] %>
+        <%= f.input :status, collection: ["In Progress", "Denied", "Finished"], label: false %>
         <%= f.submit "Change status" %>
+        <%# render empty field %>
       <% end %>
-    <% end %>
+    <% else %>
     <%= button_to "Cancel trade", trade_path(trade), class: "btn btn-outline-secondary", method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
+    <% end %>
   </td>
 </tr>
