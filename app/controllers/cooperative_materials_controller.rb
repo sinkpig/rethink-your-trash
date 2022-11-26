@@ -14,6 +14,16 @@ class CooperativeMaterialsController < ApplicationController
     end
   end
 
+  def update
+    if @cooperative_material.update(cooperative_material_params)
+      flash[:notice] = "Successfully addeed material"
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+
   private
 
   def cooperative_material_params
