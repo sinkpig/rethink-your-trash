@@ -1,14 +1,13 @@
 class CooperativeMaterialsController < ApplicationController
 
   def index
-    @cooperative_materials = CooperativeMaterial.where(user_id: params[:cooperative_id])
+    @cooperative_materials = CooperativeMaterial.where(cooperative_id: current_user.id)
   end
 
   def create
     @cooperative_material = CooperativeMaterial.new(cooperative_material_params)
-    cooperative = User.find(params[:cooperative_id])
-    @cooperative_material.user = cooperative
-    if cooperative.cooperative? && @cooperative_material.save?
+    @cooperative_material.user = current_user
+    if current_user.cooperative? && @cooperative_material.save?
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
