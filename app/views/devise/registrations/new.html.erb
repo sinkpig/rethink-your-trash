@@ -3,6 +3,9 @@
     <div class="bg-success w-100 vh-100">
       <div class="d-flex align-items-center h-75 ms-5 me-4">
         <div>
+          <%= link_to root_path do %>
+            <%= image_tag "logo-white.png", class: "mb-3", width: "150px" %>
+          <% end %>
           <h2 class="text-start" style="font-size: 40px;">Be the change you want to see in the world.</h2>
           <span class="h4 mb-0" style="font-weight: 400;">Reach out to cooperatives that can recycle your trash</span>
         </div>
@@ -16,16 +19,19 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <%= f.input :name %>
+        <%= f.input :name,
+            input_html: { class: "bg-white" } %>
       </div>
 
       <div class="field">
-        <%= f.input :address %>
+        <%= f.input :address,
+            input_html: { class: "bg-white" } %>
       </div>
 
       <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",
+            input_html: { class: "form-control bg-white" } %>
       </div>
 
       <div class="field">
@@ -33,21 +39,21 @@
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.password_field :password, autocomplete: "new-password",
+            input_html: { class: "form-control bg-white" } %>
       </div>
 
       <div class="field">
         <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password",
+            input_html: { class: "form-control bg-white" } %>
       </div>
 
       <div class="field" data-controller="show-description-field">
-        <%= f.input :role, collection: User.roles.keys, input_html: { data: { action: "change->show-description-field#show" } } %>
-          <div class="field">
-            <div class="d-none" data-show-description-field-target="description">
-            <%= f.input :description %>
-            </div>
-          </div>
+        <%= f.label "What type of user are you?" %><br />
+        <%= f.input :role, collection: User.roles.keys,
+            input_html: { data: { action: "change->show-description-field#show" }, class: "bg-white" },
+            label: false %>
       </div>
 
 

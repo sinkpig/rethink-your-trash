@@ -3,6 +3,9 @@
     <div class="bg-success w-100 vh-100">
       <div class="d-flex align-items-center h-75 ms-5 me-4">
         <div>
+          <%= link_to root_path do %>
+            <%= image_tag "logo-white.png", class: "mb-3", width: "150px" %>
+          <% end %>
           <h2 class="text-start" style="font-size: 40px;">Be the change you want to see in the world.</h2>
           <span class="h4 mb-0" style="font-weight: 400;">Reach out to cooperatives that can recycle your trash</span>
         </div>
@@ -18,10 +21,10 @@
         <%= f.input :email,
                     required: false,
                     autofocus: true,
-                    input_html: { autocomplete: "email" } %>
+                    input_html: { autocomplete: "email", class: "bg-white" } %>
         <%= f.input :password,
                     required: false,
-                    input_html: { autocomplete: "current-password" } %>
+                    input_html: { autocomplete: "current-password", class: "bg-white" } %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 

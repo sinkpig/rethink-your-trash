@@ -1,8 +1,17 @@
 
 <%= simple_form_for [@cooperative, @trade], url: cooperative_trades_path do |f| %>
-  <%= f.association :material %>
-  <%= f.input :material_quantity %>
-  <%= f.input :delivery_method, collection: ["Pick up", "Drop off"] %>
-  <%= f.input :delivery_date %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= f.association :material,
+      input_html: { class: "bg-white" } %>
+  <div class="field">
+    <%= f.label "What bag size do you have of the material?" %><br />
+    <%= f.input :material_quantity,
+        input_html: { class: "bg-white" },
+        label: false %>
+  </div>
+  <%= f.input :delivery_method, collection: ["Pick up", "Drop off"],
+      input_html: { class: "bg-white" } %>
+  <%# ADD FLATPICKER JS %>
+  <%= f.input :delivery_date,
+      input_html: { class: "bg-white" } %>
+  <%= f.button :submit, class: "btn btn-primary mt-3 w-100" %>
 <% end %>
