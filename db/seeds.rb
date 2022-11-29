@@ -33,8 +33,7 @@ cooperative1 = User.create!(name: "Cooperativa Paulista de Teatro",
                             password: "123123",
                             password_confirmation: "123123",
                             address: "Rua Doutor Rafael de Barros, 262 - Paraíso, São Paulo - SP, 04003-041, Brazil",
-                            role: "cooperative",
-                            description: Faker::Quotes::Chiquito.sentence)
+                            role: "cooperative")
 puts 'End'
 puts 'Creating a cooperative 2'
 cooperative2 = User.create!(name: "Ayres Comércio e Reciclagem de Metais",
@@ -42,8 +41,7 @@ cooperative2 = User.create!(name: "Ayres Comércio e Reciclagem de Metais",
                             password: "123123",
                             password_confirmation: "123123",
                             address: "Rua Fradique Coutinho, 153 - Pinheiros, São Paulo - SP, 05416-010, Brazil",
-                            role: "cooperative",
-                            description: Faker::Quotes::Chiquito.sentence)
+                            role: "cooperative")
 puts 'End'
 puts 'Creating a cooperative 3'
 cooperative3 = User.create!(name: "Bem Estar Reciclagem",
@@ -51,17 +49,15 @@ cooperative3 = User.create!(name: "Bem Estar Reciclagem",
                             password: "123123",
                             password_confirmation: "123123",
                             address:  "Avenida Paulista 900, São Paulo",
-                            role: "cooperative",
-                            description: Faker::Quotes::Chiquito.sentence)
+                            role: "cooperative")
 puts 'End'
 puts 'Creating a cooperative 4'
-cooperative4 = User.create!(name: "Bem Estar Reciclagem",
+cooperative4 = User.create!(name: "Cooperativa Viralata",
                             email: "d@d.com",
                             password: "123123",
                             password_confirmation: "123123",
                             address:  "Avenida Paulista 48, São Paulo",
-                            role: "cooperative",
-                            description: Faker::Quotes::Chiquito.sentence)
+                            role: "cooperative")
 puts 'End'
 
 puts 'Creating materials'
