@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :name, :address, :role, presence: true
   validates :description, presence: true, if: :cooperative?
   has_many :trades
+  has_many :materials, through: :cooperative_material
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

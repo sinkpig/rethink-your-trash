@@ -1,0 +1,12 @@
+<h1>index de cooperative_materials</h1>
+
+<% if @cooperative_materials.count == 0 %>
+  <p>You still need to add the materials you accept to your list</p>
+<% else %>
+  <% @cooperative_materials.each do |cooperative_material| %>
+    <%= cooperative_material.material.name %>
+  <% end %>
+<% end %>
+
+<p>Want to add new materials to your list?</p>
+<%= link_to "New material", new_cooperative_cooperative_material_path %>

@@ -9,7 +9,6 @@ class CooperativesController < ApplicationController
   def show
     @cooperative = User.find(params[:id])
   end
-  #check if we need to change database to separate the user types
 
   private
 
