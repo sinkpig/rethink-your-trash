@@ -25,13 +25,17 @@ class CooperativeMaterialsController < ApplicationController
 
   def update
     if @cooperative_material.update(cooperative_material_params)
-      flash[:notice] = "Successfully addeed material"
-      redirect_to root_path
+      flash[:notice] = "Successfully added material"
+      redirect_to cooperative_cooperative_materials_path
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
+  def destroy
+    @cooperative_material.destroy
+    redirect_to root_path, status: :see_other
+  end
 
   private
 
