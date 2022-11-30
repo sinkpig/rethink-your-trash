@@ -1,6 +1,5 @@
 class CooperativeMaterialsController < ApplicationController
-  before_action :set_cooperative, only: %i[index new]
-
+  before_action :set_cooperative, only: %i[index new destroy]
 
   def index
     @cooperative_materials = CooperativeMaterial.where(user_id: @cooperative.id)
@@ -23,15 +22,20 @@ class CooperativeMaterialsController < ApplicationController
     end
   end
 
-  def update
-    if @cooperative_material.update(cooperative_material_params)
-      flash[:notice] = "Successfully addeed material"
-      redirect_to root_path
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @cooperative_material.update(cooperative_material_params)
+  #     flash[:notice] = "Successfully added material"
+  #     redirect_to cooperative_cooperative_materials_path
+  #   else
+  #     render :edit, status: :unprocessable_entity
+  #   end
+  # end
 
+  def destroy
+    @cooperative_material = CooperativeMaterial.find(params[:id])
+    @cooperative_material.destroy
+    redirect_to cooperative_cooperative_materials_path(@cooperative), status: :see_other
+  end
 
   private
 
