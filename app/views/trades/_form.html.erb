@@ -1,6 +1,6 @@
 
 <%= simple_form_for [@cooperative, @trade], url: cooperative_trades_path, data: { controller: 'flatpickr' } do |f| %>
-  <%= f.association :material,
+  <%= f.association :material, collection: @cooperative.materials,
       input_html: { class: "bg-white" } %>
   <div class="field">
     <%= f.label "What bag size do you have of the material?" %><br />

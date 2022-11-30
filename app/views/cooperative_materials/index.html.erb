@@ -5,6 +5,10 @@
 <% else %>
   <% @cooperative_materials.each do |cooperative_material| %>
     <%= cooperative_material.material.name %>
+    <%= link_to "x", cooperative_cooperative_material_path(cooperative_material.user, cooperative_material), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <%# link_to "x", cooperative_material_path(cooperative_material), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <%# desnestar o destroy nas rotas
+    <%# no controller direcionar os paths pro profile %> %>
   <% end %>
 <% end %>
 
