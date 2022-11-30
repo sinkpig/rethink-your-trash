@@ -8,6 +8,7 @@ class CooperativesController < ApplicationController
 
   def show
     @cooperative = User.find(params[:id])
+    # map
   end
 
   private
@@ -20,4 +21,14 @@ class CooperativesController < ApplicationController
     params.require(:cooperative).permit(:name, :email, :address, :description)
   end
 
+  def map
+    @markers = @cooperative.geocoded.map do |cooperative|
+      {
+        lat: cooperative.latitude,
+        lng: cooperative.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { cooperative: }),
+        image_url: helpers.asset_url("marker_cooperative.png")
+      }
+    end
+  end
 end

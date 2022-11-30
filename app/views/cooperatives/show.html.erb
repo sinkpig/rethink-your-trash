@@ -1,57 +1,37 @@
-<div class="mx-auto" style="width: 800px;">
+<div class="bg-success position-relative mb-3" style="height: 120px;">
+  <div class="bg-white rounded-circle border position-absolute top-100 start-50 translate-middle" style="width: 80px; height: 80px;"></div>
+</div>
+<div class="container py-5 text-center">
+  <h1 class="px-md-5 mx-md-5"><%= @cooperative.name %></h1>
+  <p class="px-md-5 mx-md-5"><%= @cooperative.description %></p>
+  <%= button_to "Trade materials",  new_cooperative_trade_path(@cooperative), class: "btn btn-primary px-5" %>
 
-  <h1><%= @cooperative.name %></h1>
-    <div class="container">
-        <% if @cooperative.name == "Cooperativa Paulista de Teatro" %>
-          <p>We are a cooperative in Sao Paulo/SP made by individual entrepreneurs organized and
-          legally constituted in a cooperative with the purpose of collecting,
-          segregating and selling recyclable materials, minimizing environmental impacts in the final disposal
-          of solid waste.</p>
-        <% end %>
-        <% if @cooperative.name == "Ayres Comércio e Reciclagem de Metais" %>
-          <p>Operating in the demanding recycling market, we work
-          in the purchase and sale of a wide variety of ferrous and non-ferrous materials.
-          We offer our customers and suppliers quick service, technology and safe
-          loading and unloading of materials.
-          We value the immediate removal of your material at no cost, working in companies,
-          construction companies and businesses in general. We also work at the night period.
-          Weighing and payment of materials are made immediately in our warehouse.</p>
-        <% end %>
-        <% if @cooperative.email == "c@c.com" %>
-          <p>Our main objective is to act in the three dimensions of sustainable development:
-          economic, social and environmental.
-          The waste we receive generate work and income for people in social vulnerability
-          and who now have recycling as an opportunity for professional training and home support.
-          This same material is what can be separated incorrectly, polluting rivers or ending up in landfills.
-          One of our key jobs is the collection and disposal of glass, working on two fronts:
-          food safety and the correct disposal of packaging. By decharacterizing the packaging and sending
-          it to the industry again, its use for counterfeiting beverages and foodstuffs is avoided.</p>
-        <% end %>
-        <% if @cooperative.email == "d@d.com" %>
-          <p>We are a start-up dedicated to valuing recyclable solid waste
-          and sustainability, which operates in the management and selective collection
-          of condominiums in São Paulo and sustainability projects for companies.</p>
-        <% end %>
+  <div class="pt-5">
+    <div class="row text-start">
+      <div class="col-md-7">
+        <h4>Find us here:</h4>
+        <%# NOT WORKING %>
 
-        <h3>Accepted materials</h3>
-          <% if @cooperative.name == "Cooperativa Paulista de Teatro" %>
-            <%# show icons for 4 different types of materials %>
-          <% end %>
-          <% if @cooperative.name == "Ayres Comércio e Reciclagem de Metais" %>
-            <%# show icons for metal and other 3 types of materials %>
-          <% end %>
-          <% if @cooperative.email == "c@c.com" %>
-            <%# show icons for glass and other 3 types of materials %>
-          <% end %>
-          <% if @cooperative.email == "d@d.com" %>
-            <%# show icons for 4 different types of materials %>
-          <% end %>
-
-        <h5>Our contacts</h5>
-          <%# show icons for facebook, instagram, twitter, my website etc %>
-
-        <%= button_to "Trade with me",  new_cooperative_trade_path(@cooperative), class: "btn btn-outline-secondary" %>
+        <%# <div class="d-inline-block" style="width: 100%; height: 500px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          <%#data-map-api-key-value="<%#= ENV['MAPBOX_API_KEY'] %>">
+        <%#</div> %>
 
       </div>
-
+      <div class="col-md-5">
+        <h4>Materials we accept:</h4>
+        <div class="row g-3 align-items-center">
+          <% @cooperative.materials.each do |material| %>
+            <%= render "material", material: material %>
+          <% end %>
+        </div>
+        <hr>
+        <h4 class="my-3">Get in touch</h4>
+        <i class="fa-brands fa-facebook fs-3 text-primary me-2"></i>
+        <i class="fa-brands fa-square-twitter fs-3 text-primary me-2"></i>
+        <i class="fa-solid fa-globe fs-3 text-primary me-2"></i>
+      </div>
+    </div>
+  </div>
 </div>
