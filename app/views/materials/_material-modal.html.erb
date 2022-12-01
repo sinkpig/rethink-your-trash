@@ -60,7 +60,10 @@
           </ul>
         <% end %>
         <h5 class="mb-3">Cooperatives that work with <%= material.name %></h5>
-        <%# Add cooperative links %>
+        <%# Fix this %>
+        <% material.cooperatives.each do |cooperative| %>
+          <p><%= cooperative.name %></p>
+        <% end %>
       </div>
     </div>
   </div>
