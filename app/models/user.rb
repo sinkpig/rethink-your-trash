@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, :address, :role, presence: true
+  validates :name, :address, :role, :email, presence: true
   validates :description, presence: true, if: :cooperative?
   has_many :trades
   has_many :cooperative_materials
