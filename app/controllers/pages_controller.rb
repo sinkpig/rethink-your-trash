@@ -12,6 +12,7 @@ class PagesController < ApplicationController
       @trades = Trade.where(cooperative_id: current_user.id)
     else
       @materials = Material.all.sample(6)
+      @cooperatives = User.where(role: "cooperative").sample(6)
       map
     end
   end
@@ -27,8 +28,8 @@ class PagesController < ApplicationController
   private
 
   def map
-    @cooperatives = User.where(role: "cooperative")
-    @markers = @cooperatives.geocoded.map do |cooperative|
+    @cooperatives_map = User.where(role: "cooperative")
+    @markers = @cooperatives_map.geocoded.map do |cooperative|
       {
         lat: cooperative.latitude,
         lng: cooperative.longitude,
