@@ -3,11 +3,7 @@ Rails.application.routes.draw do
   # get 'users/show'
   devise_for :users
   root to: "pages#home"
-
-  scope "profile" do
-    get "", to: "pages#profile", as: "profile"
-  end
-  # delete "cooperative_material/:id", to: "cooperative_materials#destroy", as: "cooperative_material_delete"
+  get "/profile", to: "pages#profile"
 
   resources :cooperatives, only: %i[index show] do
     resources :trades, only: %i[new create]
