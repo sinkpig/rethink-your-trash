@@ -17,7 +17,7 @@
 <% if current_user&.person? %>
   <div class="container py-5">
     <div class="pb-5">
-      <h4 class="mb-4">Your trades:</h4>
+      <h4 class="mb-4">Your active trades:</h4>
       <% if @trades.count == 0 %>
         <p><strong class="text-primary">You haven't traded anything yet!</strong>
         <br>
@@ -33,9 +33,6 @@
               <th scope="col">Delivery method</th>
               <th scope="col">Status</th>
               <th scope="col">Action</th>
-              <% if current_user&.cooperative? %>
-                <th scope="col"></th>
-              <% end %>
             </tr>
           </thead>
           <tbody>
@@ -79,8 +76,6 @@
           </tbody>
         </table>
     <% end %>
-    <%# view da home da cooperativa %>
-    <%# <% render "profile" ? %>
   </div>
 <% else %>
   <div class="text-center bg-success" style="padding: 40px 200px !important;">
