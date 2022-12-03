@@ -1,11 +1,11 @@
-
 <%= simple_form_for [@cooperative, @trade], url: cooperative_trades_path, data: { controller: 'flatpickr' } do |f| %>
   <%= f.association :material, collection: @cooperative.materials,
       input_html: { class: "bg-white" } %>
   <div class="field">
     <%= f.label "What bag size do you have of the material?" %><br />
     <%= f.input :material_quantity,
-        input_html: { class: "bg-white" },
+        input_html: { class: "bg-white", min: "1", id: "materialQuantity",
+        onkeypress: 'return event.charCode >= 48 && event.charCode <= 57' },
         label: false %>
   </div>
   <%= f.input :delivery_method, collection: ["Pick up", "Drop off"],
