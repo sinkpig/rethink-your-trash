@@ -104,7 +104,7 @@ User.create!(name: "Reciclagem Santo Cristo",
              email: "e@e.com",
              password: "123123",
              password_confirmation: "123123",
-             address: "Rua Embú de Heliópolis, 83, Cidade Nova Heliopolis, São Paulo",
+             address: "Avenida Vereador José Diniz, 599, Santo Amaro, São Paulo",
              description: "From the very first waste skip collected in 1989, we did things
              differently; the skip was brought back to the yard, tipped out and floor-sorted, separated
              into waste types, which back then was unheard of. It was outside of the industry norms of
@@ -154,7 +154,7 @@ User.create!(name: "Linha Amarela Reciclagem",
              email: "i@i.com",
              password: "123123",
              password_confirmation: "123123",
-             address: "Rua Barraquinha, 87, Vila Regente Feijo, São Paulo",
+             address: "Rua Anita Malfatti, 278, Casa Verde, São Paulo",
              description: "A Materials Recycling Facility or MRF is a deceptively simple yet vital facility for
              recycling waste. Its objective is to produce clean, sorted and segregated materials as efficiently as
              possible, ready for further recycling. By accepting co-mingled waste, we reduce the amount of space
@@ -192,7 +192,7 @@ User.create!(name: "Latasa Reciclagem",
              email: "l@l.com",
              password: "123123",
              password_confirmation: "123123",
-             address: "Rua Cachoeira, 306, Belenzinho, São Paulo",
+             address: "Rua Apotribu, 57, Parque Imperial, São Paulo - SP, 04302-000, Brazil",
              description: "Through the BEEAH Recycling vertical, BEEAH Group has developed a self-sustaining model
              for the management of waste and zero-waste strategies. The company has made great headway towards a
               zero-waste solution, currently achieving a diversion rate of more than 76%.",
@@ -203,7 +203,7 @@ User.create!(name: "Pompel Reciclagem",
              email: "m@m.com",
              password: "123123",
              password_confirmation: "123123",
-             address: "Rua Constantino Cavafi, 21, Vila Clara, São Paulo",
+             address: "Rua Bertioga, 46, Chacara Inglesa, São Paulo - SP, 04141-100, Brazil",
              description: "Through a carefully planned phasing strategy, the company has built some of the world's most
              advanced recycling facilities at this Centre.
              These facilities maximize recovery and waste diversion, while driving the zero-waste agenda set by BEEAH
