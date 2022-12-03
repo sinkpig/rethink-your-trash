@@ -21,6 +21,11 @@ class PagesController < ApplicationController
     @trades = Trade.where(person_id: current_user.id, status: ["In Progress", "Pending"]).limit(5)
     @cooperative = User.find(current_user.id)
     @cooperative_materials = CooperativeMaterial.where(user_id: @cooperative.id)
+    @cooperative_material = CooperativeMaterial.new
+
+    #@materials eh a lista de todos os materiais que ainda nao foram selecionados por esta cooperative (vai mostrar apenas os que faltam como opcao para serem selecionados)
+    @materials = Material.where.not(id: @cooperative_materials.map(&:material_id))
+
     map_single_marker
   end
 

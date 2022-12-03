@@ -45,9 +45,14 @@
               <% if current_user.materials.count == 0 %>
                 <p class="mb-0">No materials yet. Add some!</p>
               <% else %>
-                <div class="row g-3 align-items-center">
-                  <% current_user.materials.each do |material| %>
-                    <%= render "cooperatives/material", material: material %>
+                <div class="d-flex justify-content-center">
+                  <% @cooperative_materials.each do |cooperative_material| %>
+                    <div class="d-flex">
+                      <%= render "cooperatives/material", cooperative_material: cooperative_material %>
+                      <%= link_to cooperative_material_path(cooperative_material), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+                        <i class="fa-solid fa-xmark"></i>
+                      <% end %>
+                    </div>
                   <% end %>
                 </div>
               <% end %>
