@@ -28,8 +28,52 @@ person4 = User.create!(name: "Vinny", email: "test3@test.com", password: "123123
 puts 'End'
 
 puts 'Creating materials'
-Material.create!(name: "Paper")
-Material.create!(name: "Plastic")
+Material.create!(name: "Paper",
+                 description: '<p>Paper recycling is the circular process of turning old waste paper into new paper,
+                 this recycling and producing process is called papermaking. Paper is a 100% natural and
+                 recyclable resource made of wood fibers. Therefore paper waste is the most important ingredient
+                 for the process of creating new paper and cardboard products.</p>
+                 <h5 class="text-primary">What paper can you recycle?</h5>
+                 <ul class="recycle-list">
+                   <li>Cardbard</li>
+                   <li>Newspaper</li>
+                   <li>Magazine</li>
+                   <li>Catalogs</li>
+                   <li>Paperboard boxes</li>
+                   <li>White office paper</li>
+                 </ul>
+                 <h5 class="text-primary">What paper is not recyclable?</h5>
+                 <ul class="recycle-list">
+                   <li>Coated and treated paper</li>
+                   <li>Receipts and other laser printed papers</li>
+                   <li>Photos</li>
+                   <li>Paper containing food waste</li>
+                   <li>Towels, napkins, and tissue paper</li>
+                   <li>Laminated paper, wax paper, and foil-coated paper</li>
+                   <li>Paper that is soiled or contaminated with oil, grease, or chemicals</li>
+                   <li>Used wallpaper containing glue residues</li>
+                 </ul>')
+Material.create!(name: "Plastic",
+                 description: '<p>Plastic is a popular and highly versatile material, and we use a lot of it.
+                 Re-using and recycling items as many times as possible can reduce our need to create new plastic.
+                 Any plastic material with food residues on (or in) it cannot be recycled.
+                 So, remember to always clean your recyclable products!</p>
+                 <h6>What plastics can you recycle?</h6>
+                 <ul class="recycle-list">
+                   <li>Plastic bottles, pots, tubs and trays</li>
+                   <li>Plastic bags and wrappings</li>
+                   <li>Polystyrene foam</li>
+                   <li>Shampoo bottles</li>
+                   <li>Some car parts</li>
+                 </ul>
+                 <h6>What plastics are not recyclable?</h6>
+                 <ul class="recycle-list">
+                   <li>Plastic bags</li>
+                   <li>Straws</li>
+                   <li>Keyboards</li>
+                   <li>Blister packaging</li>
+                   <li>Thermoset plastics (epoxy, silicone, polyurethane and phenolic)</li>
+                 </ul>')
 Material.create!(name: "Metal", description: Faker::Lorem.sentence)
 Material.create!(name: "Batteries", description: Faker::Lorem.sentence)
 Material.create!(name: "Glass", description: Faker::Lorem.sentence)

@@ -11,6 +11,12 @@ class CooperativesController < ApplicationController
     map
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.update(description_params)
+    redirect_to profile_path
+  end
+
   private
 
   def find_cooperative
@@ -19,6 +25,10 @@ class CooperativesController < ApplicationController
 
   def cooperative_params
     params.require(:cooperative).permit(:name, :email, :address, :description)
+  end
+
+  def description_params
+    params.require(:user).permit(:description)
   end
 
   def map

@@ -6,10 +6,10 @@
 
       <%# BROKEN %>
 
-      <%# <%= simple_form_for current_user do |f| %>
-        <%# <%= f.input :description %>
-        <%# <%= f.submit "Update" %>
-      <%# <% end %>
+      <%= simple_form_for current_user, url: cooperative_path(current_user), data: { turbo_method: :patch } do |f| %>
+        <%= f.input :description %>
+        <%= f.submit "Update" %>
+      <% end %>
 
         <h3><%= current_user.description %></h3>
 

@@ -9,7 +9,7 @@
 
         <%# Edit form %>
 
-        <%# <%= simple_form_for(article) do |f| %> %>
+        <%# <%= simple_form_for current_user, url: cooperative_path(current_user), data: { turbo_method: :patch } do |f| %>
           <%# <%= f.input :photo, as: :file %> %>
         <%# <% end %> %>
 

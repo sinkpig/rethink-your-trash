@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/profile", to: "pages#profile"
 
-  resources :cooperative, only: %i[index show] do
+  resources :cooperatives, only: %i[index show update] do
     resources :trades, only: %i[new create]
   end
   resources :trades, only: %i[destroy update]
