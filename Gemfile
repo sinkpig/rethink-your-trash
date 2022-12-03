@@ -81,3 +81,5 @@ group :test do
 end
 
 gem 'letter_opener', group: :development
+
+gem "pg_search"

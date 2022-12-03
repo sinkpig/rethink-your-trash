@@ -1,12 +1,14 @@
 <div class="container py-5">
   <div class="d-flex justify-content-between">
     <h1 class="mb-3">Cooperatives<h1>
-    <form class="input-group mb-3">
-      <input type="text" class="form-control bg-white" placeholder="Search cooperatives" aria-label="Recipient's username" aria-describedby="button-addon2">
-      <button class="btn btn-success" type="button" id="button-addon2">
+
+    <%= form_with url: cooperatives_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query, params[:query], class: "form-control bg-white", placeholder: "Search cooperatives" %>
+      <%= button_tag class: "btn btn-success rounded-0", type: "submit" do %>
         <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
-    </form>
+      <% end %>
+    <% end %>
+
   </div>
   <div class="row justify-content-start">
     <% @cooperatives.each do |cooperative| %>
