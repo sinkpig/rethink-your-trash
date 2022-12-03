@@ -20,7 +20,7 @@ class PagesController < ApplicationController
   def profile
     @trades = Trade.where(person_id: current_user.id, status: ["In Progress", "Pending"]).limit(5)
     @cooperative = User.find(current_user.id)
-    # @cooperative_material = CooperativeMaterial.find()
+    # @cooperative_material = CooperativeMaterial.new(cooperative_material_params)
     @cooperative_materials = CooperativeMaterial.where(user_id: @cooperative.id)
     # @wallet = current.user.wallet.value
   end

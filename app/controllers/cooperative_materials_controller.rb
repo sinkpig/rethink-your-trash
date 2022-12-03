@@ -1,9 +1,9 @@
 class CooperativeMaterialsController < ApplicationController
   before_action :set_cooperative, only: %i[index new]
 
-  def index
-    @cooperative_materials = CooperativeMaterial.where(user_id: @cooperative.id)
-  end
+  # def index
+  #   @cooperative_materials = CooperativeMaterial.where(user_id: @cooperative.id)
+  # end
 
   def new
     @cooperative_material = CooperativeMaterial.new
@@ -16,7 +16,7 @@ class CooperativeMaterialsController < ApplicationController
     @cooperative_material = CooperativeMaterial.new(cooperative_material_params)
     @cooperative_material.user = current_user
     if current_user.cooperative? && @cooperative_material.save
-      redirect_to cooperative_cooperative_materials_path
+      redirect_to profile_path
     else
       render :new, status: :unprocessable_entity
     end
