@@ -60,17 +60,21 @@
           </ul>
         <% end %>
         <h5 class="mb-3">Cooperatives that work with <%= material.name %></h5>
-        <ul>
-          <% material.cooperatives.each do |cooperative| %>
-            <li>
-              <h6 class="fw-bold">
-                <%= link_to cooperative_path(cooperative), class: "text-primary" do %>
-                  <% cooperative.name %>
-                <% end %>
-              </h6>
-            </li>
-          <% end %>
-        </ul>
+        <% if material.cooperatives.count > 0 %>
+          <ul>
+              <% material.cooperatives.each do |cooperative| %>
+                <li>
+                  <h6 class="fw-bold">
+                    <%= link_to cooperative_path(cooperative), class: "text-primary" do %>
+                      <% cooperative.name %>
+                    <% end %>
+                  </h6>
+                </li>
+              <% end %>
+          </ul>
+        <% else %>
+          <p class="mb-0">Sorry, no cooperatives accept <%= material.name %></p>
+        <% end %>
       </div>
     </div>
   </div>

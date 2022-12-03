@@ -20,9 +20,13 @@ class PagesController < ApplicationController
   def profile
     @trades = Trade.where(person_id: current_user.id, status: ["In Progress", "Pending"]).limit(5)
     @cooperative = User.find(current_user.id)
-    # @cooperative_material = CooperativeMaterial.new(cooperative_material_params)
     @cooperative_materials = CooperativeMaterial.where(user_id: @cooperative.id)
-    # @wallet = current.user.wallet.value
+    @cooperative_material = CooperativeMaterial.new
+
+    #@materials eh a lista de todos os materiais que ainda nao foram selecionados por esta cooperative (vai mostrar apenas os que faltam como opcao para serem selecionados)
+    @materials = Material.where.not(id: @cooperative_materials.map(&:material_id))
+
+    map_single_marker
   end
 
   private
@@ -37,5 +41,14 @@ class PagesController < ApplicationController
         image_url: helpers.asset_url("marker_cooperative.png")
       }
     end
+  end
+
+  def map_single_marker
+    @marker = [{
+      lat: @cooperative.latitude,
+      lng: @cooperative.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { cooperative: @cooperative }),
+      image_url: helpers.asset_url("marker_cooperative.png")
+    }]
   end
 end

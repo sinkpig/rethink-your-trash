@@ -1,40 +1,73 @@
-  <div class="container">
-    <h1><%= current_user.name %></h1>
-    <h5><%= current_user.address %></h5>
+<%# Make this a partial? v %>
+<div class="bg-success d-flex justify-content-between align-items-end w-100 px-5 py-4" style="height: 140px;">
+  <div>
+    <%# When profile picture not included, show placeholder %>
+    <div class="bg-white rounded-circle border me-4 d-inline-block position-relative" style="width: 80px; height: 80px; bottom: -48px;"></div>
+    <h1 class="d-inline mb-0"><%= current_user.name %></h1>
   </div>
-
-<div class="container">
-  <% if current_user.cooperative? %>
-    <h3><%= current_user.description %></h3>
-
-    <% @cooperative_materials.each do |cooperative_material| %>
-      <%= cooperative_material.material.name %>
-      <%= link_to "x", cooperative_material_path(cooperative_material), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-    <% end %>
-
-    <% simple_form_for [@cooperative, @cooperative_material], url: cooperative_cooperative_materials_path, data: { turbo_method: :post } do |f| %>
-      <% f.input :material_id, collection: @materials, label_method: :name, value_method: :id %>
-      <% f.submit "Add" %>
-    <% end %>
-
-  <% end %>
+  <button type="button" class="btn btn-primary align-self-end" data-bs-toggle="modal" data-bs-target="#editPicture">Edit profile picture</button>
 </div>
 
-  <%# SHOW ALL TRADES %>
-  <div class="container">
-    <h4>Your trades:</h4>
-      <% if @trades == 0 %>
-        <p>You don't have any opened trades</p>
-      <% else %>
-        <%# IF COOPERATIVE, EDIT TRADES STATUS %>
-        <%# <%= render "trade-row" %>
-      <% end %>
-  </div>
+<div class="container py-5">
+  <% if current_user.person? %>
+    <div class="row justify-content-center">
+    <div class="col-6">
+  <% end %>
 
-  <%# IF PERSON, SHOW COINS %>
+  <% if current_user.cooperative? %>
+    <div class="row g-0">
+    <div class="col-3 border-end">
+  <% end %>
 
-  <div class="container">
-    <% if current_user.person?%>
-      <p>Your wallet:</p>
+      <div class="card border-0">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h3 class="card-title">Your account</h3>
+            <p class="h6 text-primary">Email:</p>
+            <p><%= current_user.email %></p>
+            <p class="h6 text-primary">Address:</p>
+            <p><%= current_user.address %></p>
+
+            <% if current_user.person? %>
+              <div class="d-inline-block mb-3" style="width: 100%; height: 300px;"
+                data-controller="map"
+                data-map-markers-value="<%= @marker.to_json %>"
+                data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+              </div>
+            <% end %>
+
+            <%= link_to "Edit account", edit_user_registration_path, class: "btn btn-outline-danger d-block w-100" %>
+          </li>
+
+          <% if current_user.cooperative? %>
+            <li class="list-group-item">
+              <p class="h6 text-primary">Accepted materials:</p>
+              <% if current_user.materials.count == 0 %>
+                <p class="mb-0">No materials yet. Add some!</p>
+              <% else %>
+                <div class="d-flex justify-content-center">
+                  <% @cooperative_materials.each do |cooperative_material| %>
+                    <div class="d-flex">
+                      <%= render "cooperatives/material", cooperative_material: cooperative_material %>
+                      <%= link_to cooperative_material_path(cooperative_material), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+                        <i class="fa-solid fa-xmark"></i>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
+
+    <% if current_user.cooperative? %>
+      <%= render "cooperative-column" %>
     <% end %>
+
   </div>
+</div>
+
+<%= render "upload-modal" %>

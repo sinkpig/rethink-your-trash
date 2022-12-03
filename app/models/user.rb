@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, :address, :role, :email, presence: true
-  validates :description, presence: true, if: :cooperative?
+  # validates :description, presence: true, if: :cooperative?
   has_many :trades
   has_many :cooperative_materials
   has_many :materials, through: :cooperative_materials
