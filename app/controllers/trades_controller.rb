@@ -12,13 +12,12 @@ class TradesController < ApplicationController
     @trade.status = "Pending"
     @trade.person = current_user
     @trade.cooperative = User.find(params[:cooperative_id])
-
-    if @trade.save!
+    @cooperative = User.find(params[:cooperative_id])
+    if @trade.material_quantity.to_i.positive? && current_user.person? && @trade.save!
       redirect_to root_path
     else
       # redirect_to new_cooperative_trade_path, notice: "Invalid field"
       render :new, status: :unprocessable_entity
-      # flash.keep[:alert] = "Invalid field"
       #the render shows the fields that must be corrected by the user
     end
   end
