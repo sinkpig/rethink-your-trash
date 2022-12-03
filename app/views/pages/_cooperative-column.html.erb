@@ -1,0 +1,28 @@
+<div class="col-9">
+  <div class="card border-0 rounded-0">
+    <div class="card-body">
+      <h3>Edit information</h3>
+      <%# Show forms to edit fields if cooperative, if person %>
+
+      <%# BROKEN %>
+
+      <%# <%= simple_form_for current_user do |f| %>
+        <%# <%= f.input :description %>
+        <%# <%= f.submit "Update" %>
+      <%# <% end %>
+
+      <h3><%= current_user.description %></h3>
+
+      <% @cooperative_materials.each do |cooperative_material| %>
+        <%= cooperative_material.material.name %>
+        <%= link_to "x", cooperative_material_path(cooperative_material), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <% end %>
+
+      <%# simple_form_for [@cooperative, @cooperative_material], url: profile_path do |f| %>
+        <%# f.input :material_id, collection: @materials, label_method: :name, value_method: :id %>
+        <%# f.submit "Add" %>
+      <%# end %>
+
+    </div>
+  </div>
+</div>

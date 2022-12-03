@@ -20,9 +20,8 @@ class PagesController < ApplicationController
   def profile
     @trades = Trade.where(person_id: current_user.id, status: ["In Progress", "Pending"]).limit(5)
     @cooperative = User.find(current_user.id)
-    # @cooperative_material = CooperativeMaterial.find()
     @cooperative_materials = CooperativeMaterial.where(user_id: @cooperative.id)
-    # @wallet = current.user.wallet.value
+    map_single_marker
   end
 
   private
@@ -37,5 +36,14 @@ class PagesController < ApplicationController
         image_url: helpers.asset_url("marker_cooperative.png")
       }
     end
+  end
+
+  def map_single_marker
+    @marker = [{
+      lat: @cooperative.latitude,
+      lng: @cooperative.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { cooperative: @cooperative }),
+      image_url: helpers.asset_url("marker_cooperative.png")
+    }]
   end
 end
