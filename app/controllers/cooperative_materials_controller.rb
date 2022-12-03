@@ -1,5 +1,5 @@
 class CooperativeMaterialsController < ApplicationController
-  before_action :set_cooperative, only: %i[index new destroy]
+  before_action :set_cooperative, only: %i[index new]
 
   def index
     @cooperative_materials = CooperativeMaterial.where(user_id: @cooperative.id)
@@ -34,7 +34,7 @@ class CooperativeMaterialsController < ApplicationController
   def destroy
     @cooperative_material = CooperativeMaterial.find(params[:id])
     @cooperative_material.destroy
-    redirect_to cooperative_cooperative_materials_path(@cooperative), status: :see_other
+    redirect_to profile_path, status: :see_other
   end
 
   private
