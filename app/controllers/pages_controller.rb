@@ -48,7 +48,7 @@ class PagesController < ApplicationController
       lat: @cooperative.latitude,
       lng: @cooperative.longitude,
       info_window: render_to_string(partial: "info_window", locals: { cooperative: @cooperative }),
-      image_url: helpers.asset_url("marker_cooperative.png")
+      image_url: helpers.asset_url("marker_person.png")
     }]
   end
 end
