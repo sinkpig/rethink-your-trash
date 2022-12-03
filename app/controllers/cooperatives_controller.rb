@@ -3,7 +3,11 @@ class CooperativesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @cooperatives = User.where(role: "cooperative")
+    if params[:query].present?
+      @cooperatives = User.where(role: "cooperative").global_search(params[:query])
+    else
+      @cooperatives = User.where(role: "cooperative")
+    end
   end
 
   def show
