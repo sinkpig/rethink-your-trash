@@ -30,13 +30,6 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end border-0" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", profile_path, class: "dropdown-item" %>
-              <div class="d-flex justify-content-between dropdown-item">
-                <p class="mb-0">Wallet:</p>
-                <p class="mb-0">0 <i class="fa-solid fa-coins text-info"></i></p>
-              </div>
-              <%= link_to "#", class: "dropdown-item", disabled: true do %>
-                <i class="fa-solid fa-gift text-muted"></i> Rewards
-              <% end %>
               <div class="dropdown-item py-0"><hr class="my-1"></div>
               <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" do %>
                 <i class="fa-solid fa-arrow-right-from-bracket"></i> Log out
@@ -45,9 +38,6 @@
           </li>
 
         <% elsif user_signed_in? && current_user.cooperative? %>
-          <%# <li class="nav-item"> %>
-            <%# link_to "Cooperatives", cooperatives_path, class: "nav-link" %>
-          <%# </li> %>
           <li class="nav-item px-2 fw-bold">
             <%= current_user.name %>
           </li>

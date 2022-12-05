@@ -7,7 +7,7 @@
         </div>
       </div>
       <%= link_to cooperative_material_path(cooperative_material), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-      class: "position-absolute" do %>
+      class: "position-absolute top-0" do %>
         <i class="fa-solid fa-xmark"></i>
       <% end %>
       <h6 class="card-title mb-0"><%= cooperative_material.material.name %></h5>

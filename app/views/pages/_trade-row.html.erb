@@ -12,9 +12,11 @@
   <td style="vertical-align: middle;" class="d-flex">
     <% if current_user&.cooperative? %>
       <%= simple_form_for trade do |f| %>
-        <%= f.input :status, collection: ["In Progress", "Denied", "Finished"], label: false %>
-        <%= f.submit "Change status" %>
-        <%# render empty field %>
+        <div class="d-flex">
+          <%= f.input :status, collection: ["In Progress", "Denied", "Finished"], label: false,
+          wrapper: false, input_html: { class: "bg-white rounded-0" } %>
+          <%= f.submit "Update", class: "btn btn-outline-success ms-2 rounded-0" %>
+        </div>
       <% end %>
     <% else %>
     <%= button_to "Cancel trade", trade_path(trade), class: "btn btn-outline-secondary", method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>

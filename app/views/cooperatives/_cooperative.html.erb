@@ -16,6 +16,9 @@
       <% cooperative.materials.each do |material| %>
         <%= image_tag "icon_#{material.name.downcase}.png", style: "height: 35px; width: auto;" %>
       <% end %>
+      <% if cooperative.materials.count == 0 %>
+        <p class="mb-0">This cooperative doesn't accept materials yet</p>
+      <% end %>
     </div>
   </div>
 </div>
