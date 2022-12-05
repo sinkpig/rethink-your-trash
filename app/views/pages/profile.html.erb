@@ -19,14 +19,23 @@
     <div class="col-3 border-end">
   <% end %>
 
-      <div class="card border-0">
+      <div class="card h-100 border-0">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <h3 class="card-title">Your account</h3>
-            <p class="h6 text-primary">Email:</p>
+            <p class="h5 text-primary">Email:</p>
             <p><%= current_user.email %></p>
-            <p class="h6 text-primary">Address:</p>
+            <p class="h5 text-primary">Address:</p>
             <p><%= current_user.address %></p>
+
+            <% if current_user.cooperative? %>
+              <p class="h5 text-primary">Description:</p>
+              <% if current_user.description? %>
+                <p><%= current_user.description %></p>
+              <% else %>
+                <p>No description yet. Add one so that users can get to know you!</p>
+              <% end %>
+            <% end %>
 
             <% if current_user.person? %>
               <div class="d-inline-block mb-3" style="width: 100%; height: 300px;"
@@ -38,26 +47,6 @@
 
             <%= link_to "Edit account", edit_user_registration_path, class: "btn btn-outline-danger d-block w-100" %>
           </li>
-
-          <% if current_user.cooperative? %>
-            <li class="list-group-item">
-              <p class="h6 text-primary">Accepted materials:</p>
-              <% if current_user.materials.count == 0 %>
-                <p class="mb-0">No materials yet. Add some!</p>
-              <% else %>
-                <div class="d-flex justify-content-center">
-                  <% @cooperative_materials.each do |cooperative_material| %>
-                    <div class="d-flex">
-                      <%= render "cooperatives/material", cooperative_material: cooperative_material %>
-                      <%= link_to cooperative_material_path(cooperative_material), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-                        <i class="fa-solid fa-xmark"></i>
-                      <% end %>
-                    </div>
-                  <% end %>
-                </div>
-              <% end %>
-            </li>
-          <% end %>
 
         </ul>
       </div>
