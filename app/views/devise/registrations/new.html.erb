@@ -54,6 +54,9 @@
         <%= f.input :role, collection: User.roles.keys,
             input_html: { data: { action: "change->show-description-field#show" }, class: "bg-white" },
             label: false %>
+        <div class="d-none" data-show-description-field-target="description">
+          <%= f.input :description, input_html: { class: "bg-white" } %>
+        </div>
       </div>
 
 
