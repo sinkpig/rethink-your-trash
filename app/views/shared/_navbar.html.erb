@@ -47,7 +47,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle fw-bold" style="cursor: pointer;" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.photo.attached? %>
-                <%= cl_image_tag(@current_user.photo.key, width: 150, height: 150, crop: :fill, class: "avatar") %>
+                <%= cl_image_tag(current_user.photo.key, width: 150, height: 150, crop: :fill, class: "avatar") %>
               <% else %>
                 <%= cl_image_tag("Portrait_Placeholder_entv4p", width: 150, height: 150, crop: :fill, class: "avatar") %>
               <% end %>
