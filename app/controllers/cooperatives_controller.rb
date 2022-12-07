@@ -28,11 +28,11 @@ class CooperativesController < ApplicationController
   end
 
   def cooperative_params
-    params.require(:cooperative).permit(:name, :email, :address, :description)
+    params.require(:cooperative).permit(:name, :email, :address, :description, :photo)
   end
 
   def description_params
-    params.require(:user).permit(:description)
+    params.require(:user).permit(:description, :photo)
   end
 
   def map

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :trades
   has_many :cooperative_materials
   has_many :materials, through: :cooperative_materials
+  has_one_attached :photo
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
