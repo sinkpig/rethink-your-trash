@@ -6,13 +6,10 @@
           <p class="h3">Upload a new photo</p>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
-        <%# Edit form %>
-
-        <%# <%= simple_form_for current_user, url: cooperative_path(current_user), data: { turbo_method: :patch } do |f| %>
-          <%# <%= f.input :photo, as: :file %> %>
-        <%# <% end %> %>
-
+        <%= simple_form_for current_user, url: cooperative_path(current_user), data: { turbo_method: :patch } do |f| %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit %>
+        <% end %>
       </div>
     </div>
   </div>
