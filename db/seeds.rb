@@ -35,7 +35,7 @@ Material.create!(name: "Paper",
                  for the process of creating new paper and cardboard products.</p>
                  <h5 class="text-primary">What paper can you recycle?</h5>
                  <ul class="recycle-list">
-                   <li>Cardbard</li>
+                   <li>Cardboard</li>
                    <li>Newspaper</li>
                    <li>Magazine</li>
                    <li>Catalogs</li>
@@ -74,16 +74,175 @@ Material.create!(name: "Plastic",
                    <li>Blister packaging</li>
                    <li>Thermoset plastics (epoxy, silicone, polyurethane and phenolic)</li>
                  </ul>')
-Material.create!(name: "Metal", description: Faker::Lorem.sentence)
-Material.create!(name: "Batteries", description: Faker::Lorem.sentence)
-Material.create!(name: "Glass", description: Faker::Lorem.sentence)
-Material.create!(name: "Organic", description: Faker::Lorem.sentence)
-Material.create!(name: "Clothes", description: Faker::Lorem.sentence)
-Material.create!(name: "Electronics", description: Faker::Lorem.sentence)
-Material.create!(name: "Carton", description: Faker::Lorem.sentence)
-Material.create!(name: "Blisters", description: Faker::Lorem.sentence)
-Material.create!(name: "Toxic", description: Faker::Lorem.sentence)
-Material.create!(name: "Others", description: Faker::Lorem.sentence)
+Material.create!(name: "Metal",
+                 description: %(<p>Scrap metal is one of the most valuable materials you can
+                 recycle, and it encompasses so many consumer products. From appliances to
+                 batteries to cans to clothes hangers, metal is everywhere in our homes.
+                 Recycling metal is important to not only keep this limited supply material
+                 out of landfills, but also because it can make you money.</p>
+                 <h5 class="text-primary">What types of metal can you recycle?</h5>
+                 <ul class="recycle-list">
+                   <li>Aluminium</li>
+                   <li>Brass</li>
+                   <li>Copper</li>
+                   <li>Gold</li>
+                   <li>Lead</li>
+                   <li>Silver</li>
+                   <li>Steel</li>
+                 </ul>
+                 <h5 class="text-primary">What type of metals aren't recyclable?</h5>
+                 <ul class="recycle-list">
+                   <li>Radioactive material</li>
+                   <li>Mercury</li>
+                   <li>Lead</li>
+                   <li>Contaminated cans</li>
+                   <li>Household equipments</li>
+                 </ul>))
+Material.create!(name: "Batteries",
+                 description: '<p>Recycling single-use batteries is an easy way to make the world a little
+                 greener. Every battery contains some reusable material, whether rechargeable or single-use.
+                 You can either take your batteries into a local store or recycling facility, or you can mail them
+                 to a facility through a mail-in program. When you recycle your batteries, you help reduce soil
+                 contamination and water pollution, so keep recycling and making the world a better place!</p>
+                 <h5 class="text-primary">What types of batteries are recyclable?</h5>
+                 <ul class="recycle-list">
+                   <li>Absolyte Batteries</li>
+                   <li>Alkaline Batteries</li>
+                   <li>Lead Acid Batteries</li>
+                   <li>Lithium-Ion Batteries</li>
+                   <li>Nickel-Cadmium (NiCad) Batteries</li>
+                   <li>Nickel-Metal Hydride (NiMh) Batteries</li>
+                 </ul>
+                 <h5 class="text-primary">What types of batteries arent recyclable?</h5>
+                 <p>All batteries can be recycled</p>')
+Material.create!(name: "Glass",
+                 description: '<p>Glass is a 100% recyclable material made from three natural
+                 ingredients - sand, soda ash and limestone. Making new containers from recycled glass not only
+                 saves on these raw materials, but also helps reduce energy consumption and CO2 emissions. And the
+                 best part? No matter how many times you recycle it, glass never loses its quality.</p>
+                 <h5 class="text-primary">What types of glass can you recycle?</h5>
+                 <ul class="recycle-list">
+                   <li>Bottles of any colour</li>
+                   <li>Jars of any colour</li>
+                   <li>Cosmetics and perfume containers</li>
+                   <li>Pharmaceutical packaging or vials</li>
+                 </ul>
+                 <h5 class="text-primary">What type of glass arent recyclable?</h5>
+                 <ul class="recycle-list">
+                   <li>Glass cookware</li>
+                   <li>Light bulbs</li>
+                   <li>Window glass</li>
+                   <li>Drinking glasses and Vases</li>
+                   <li>Nail varnish bottles</li>
+                   <li>Mirrors</li>
+                   <li>Spectacles</li>
+                   <li>Crystal Glass</li>
+                 </ul>')
+Material.create!(name: "Organic",
+                 description: '<p>Organic wastes are materials from living sources like plants, animals, and
+                 microorganisms that are biodegradable and can be broken down into simpler organic molecules.</p>
+                 <h5 class="text-primary">What organic materials can you recycle?</h5>
+                 <ul class="recycle-list">
+                   <li>Animal products</li>
+                   <li>Vegetables and food leftovers</li>
+                   <li>Fruit peelings</li>
+                   <li>Gardening waste</li>
+                   <li>Eggshells</li>
+                   <li>Marc coffee and tea bags</li>
+                   <li>Remains of crushed bread</li>
+                   <li>Sawdust and wood chips</li>
+                 </ul>
+                 <h5 class="text-primary">What organic materials arent recyclable?</h5>
+                 <ul class="recycle-list">
+                   <li>Diapers</li>
+                   <li>Hazardous Waste</li>
+                   <li>Meat, fish, and bones</li>
+                   <li>Dairy and eggs</li>
+                   <li>Butter, cooking oil, animal fat, and grease</li>
+                   <li>Baked goods and cooked grains</li>
+                 </ul>')
+Material.create!(name: "Clothes",
+                 description: '<p>Before you throw out all your old clothes, look at the options
+                 below and choose a more sustainable way to dispose of your old clothes.</p>
+                 <h5 class="text-primary">How can you recycle clothes?</h5>
+                 <ul class="recycle-list">
+                   <li>Reuse</li>
+                   <li>Upcycle</li>
+                   <li>Recycle</li>
+                   <li>Donate to second-hand stores</li>
+                   <li>Resell your clothes</li>
+                 </ul>')
+Material.create!(name: "Electronics",
+                 description: '<p>Electronic products are made from valuable resources and materials,
+                 including metals, plastics, and glass, all of which require energy to mine and
+                 manufacture. Donating or recycling consumer electronics conserves our natural resources
+                 and avoids air and water pollution, as well as greenhouse gas emissions that are caused by
+                 manufacturing virgin materials.</p>
+                 <h5 class="text-primary">What electronics can you recycle?</h5>
+                 <ul class="recycle-list">
+                   <li>Cell phones and tablets</li>
+                   <li>Computers</li>
+                   <li>Televisions</li>
+                   <li>Printers and scanners</li>
+                   <li>Cameras, audio and video equipment</li>
+                   <li>Appliances</li>
+                 </ul>
+                 <h5 class="text-primary">What electronics arent recyclable?</h5>
+                 <ul class="recycle-list">
+                   <li>Anything that contains lead or mercury</li>
+                   <li>LCD televisions</li>
+                   <li>Monitors and old TVs (pre-1991)</li>
+                   <li>Cathode ray tube televisions</li>
+                 </ul>')
+Material.create!(name: "Carton",
+                 description: '<p>Cartons like those used for milk, juice, soy or grain
+                 milk and soup are recyclable. Curbside programs continue to increase their
+                 carton recycling rate throughout the U.S., and there are drop-off and mail-in
+                 options available as well. Despite the type, refrigerated or shelf stable, cartons
+                 are a valuable source of material to make products like tissue, paper towel, and
+                 even building materials.</p>
+                 <h5 class="text-primary">What types of carton can you recycle?</h5>
+                 <ul class="recycle-list">
+                   <li>Egg cartons made from paper</li>
+                   <li>Mil cartons</li>
+                   <li>Juice cartons</li>
+                   <li>Ice cream cartons</li>
+                   <li>Pizza boxes</li>
+                   <li>Corrugated cardboard</li>
+                   <li>Paperboard or chipboard</li>
+                 </ul>
+                 <h5 class="text-primary">What types of carton arent recyclable?</h5>
+                 <p>All types of carton be recycled</p>')
+Material.create!(name: "Blisters",
+                 description: '<p>A blister pack is a very common kind of primary packaging made of rigid plastic and
+                 a lidding material, used to pack a variety of small consumer items: toys, cosmetics, stationery,
+                 and of course, medicines.</p>
+                 <h5 class="text-primary">How to recycle blisters</h5>
+                 <ul class="recycle-list">
+                   <li>Remove all aluminium from the blister pack</li>
+                   <li>Separate the plastic</li>
+                   <li>Recycle separately</li>
+                 </ul>
+                 <p>Contact your local cooperatives to find out more about how they recycle blisters</p>')
+Material.create!(name: "Toxic",
+                 description: %(<p>It's important to dispose of hazardous products properly to keep toxicchemicals
+                 out of the environment. Improper disposal can do harm to wildlife, ecosystems, and human health.</p>
+                 <h5 class="text-primary">Recyclable hazardous waste</h5>
+                 <ul class="recycle-list">
+                   <li>Fluorescent and mercury-containing lights</li>
+                   <li>Pharmaceuticals, drugs, medications</li>
+                   <li>Household paint (interior, exterior)</li>
+                   <li>Recyclable (non-hazardous) household products</li>
+                   <li>Hazardous household products</li>
+                 </ul>
+                 <p>For further information, always contact your local cooperatives.</p>))
+Material.create!(name: "Others",
+                 description: %(<p>Each cooperative will list other materials they offer to recycle that
+                 aren't part of the list.</p>
+                 <h5 class="text-primary">Materials considered as "other"</h5>
+                 <ul class="recycle-list">
+                   <li>For further information, always contact your local cooperatives.</li>
+                 </ul>))
 puts 'End'
 
 puts 'Creating a cooperative 1'
@@ -272,34 +431,34 @@ puts 'Creating Trades'
 Trade.create!(created_date: DateTime.now, delivery_date: "2022-12-20", delivery_method: "Pick up",
               material_quantity: 3, person: person1, cooperative: cooperatives[0],
               material: cooperatives[0].materials.sample, status: "Pending")
-Trade.create!(created_date: DateTime.now, delivery_date: "2022-12-01", delivery_method: "Drop off",
+Trade.create!(created_date: DateTime.now - 2, delivery_date: "2022-12-01", delivery_method: "Drop off",
               material_quantity: 2, person: person1, cooperative: cooperatives[1],
               material: cooperatives[1].materials.sample, status: "Pending")
-Trade.create!(created_date: DateTime.now, delivery_date: "2022-12-18", delivery_method: "Pick up",
+Trade.create!(created_date: DateTime.now - 5, delivery_date: "2022-12-18", delivery_method: "Pick up",
               material_quantity: 10, person: person1, cooperative: cooperatives[2],
               material: cooperatives[2].materials.sample, status: "Pending")
-Trade.create!(created_date: DateTime.now, delivery_date: "2022-11-28", delivery_method: "Pick up",
+Trade.create!(created_date: DateTime.now - 10, delivery_date: "2022-11-28", delivery_method: "Pick up",
               material_quantity: 9, person: person1, cooperative: cooperatives[3],
               material: cooperatives[3].materials.sample, status: "Pending")
-Trade.create!(created_date: DateTime.now, delivery_date: "2022-11-30", delivery_method: "Pick up",
+Trade.create!(created_date: DateTime.now - 4, delivery_date: "2022-11-30", delivery_method: "Pick up",
               material_quantity: 20, person: person2, cooperative: cooperatives[0],
               material: cooperatives[0].materials.sample, status: "Pending")
-Trade.create!(created_date: DateTime.now, delivery_date: "2022-12-02", delivery_method: "Pick up",
+Trade.create!(created_date: DateTime.now - 20, delivery_date: "2022-12-02", delivery_method: "Pick up",
               material_quantity: 3, person: person3, cooperative: cooperatives[0],
               material: cooperatives[0].materials.sample, status: "Pending")
-Trade.create!(created_date: DateTime.now, delivery_date: "2022-12-20", delivery_method: "Pick up",
+Trade.create!(created_date: DateTime.now - 5, delivery_date: "2022-12-20", delivery_method: "Pick up",
               material_quantity: 5, person: person3, cooperative: cooperatives[1],
               material: cooperatives[1].materials.sample, status: "Pending")
-Trade.create!(created_date: DateTime.now, delivery_date: "2022-12-01", delivery_method: "Drop off",
+Trade.create!(created_date: DateTime.now - 8, delivery_date: "2022-12-01", delivery_method: "Drop off",
               material_quantity: 10, person: person4, cooperative: cooperatives[0],
               material: cooperatives[0].materials.sample, status: "Pending")
-Trade.create!(created_date: DateTime.now, delivery_date: "2022-12-01", delivery_method: "Drop off",
+Trade.create!(created_date: DateTime.now - 9, delivery_date: "2022-12-01", delivery_method: "Drop off",
               material_quantity: 10, person: person4, cooperative: cooperatives[1],
               material: cooperatives[1].materials.sample, status: "Pending")
-Trade.create!(created_date: DateTime.now, delivery_date: "2022-12-01", delivery_method: "Pick up",
+Trade.create!(created_date: DateTime.now - 10, delivery_date: "2022-12-01", delivery_method: "Pick up",
               material_quantity: 15, person: person4, cooperative: cooperatives[2],
               material: cooperatives[2].materials.sample, status: "Pending")
-Trade.create!(created_date: DateTime.now, delivery_date: "2022-12-01", delivery_method: "Pick up",
+Trade.create!(created_date: DateTime.now - 4, delivery_date: "2022-12-01", delivery_method: "Pick up",
               material_quantity: 12, person: person4, cooperative: cooperatives[3],
               material: cooperatives[3].materials.sample, status: "Pending")
 puts 'End'

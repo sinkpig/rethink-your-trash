@@ -12,6 +12,7 @@ class CooperativesController < ApplicationController
 
   def show
     @cooperative = User.find(params[:id])
+    redirect_to cooperatives_path, notice: "You're not authorized to access this page." unless @cooperative.cooperative?
     map
   end
 

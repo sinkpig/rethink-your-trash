@@ -2,13 +2,14 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-body">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between mb-3">
           <p class="h3">Upload a new photo</p>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <%= simple_form_for current_user, url: cooperative_path(current_user), data: { turbo_method: :patch } do |f| %>
-          <%= f.input :photo, as: :file %>
-          <%= f.submit %>
+          <%= f.input :photo, as: :file, input_html: { class: "bg-white" },
+          label: false %>
+          <%= f.submit "Upload", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
