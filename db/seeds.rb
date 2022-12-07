@@ -214,17 +214,16 @@ Material.create!(name: "Carton",
                  <h5 class="text-primary">What types of carton arent recyclable?</h5>
                  <p>All types of carton be recycled</p>')
 Material.create!(name: "Blisters",
-                 description: '<p>Electronic products are made from valuable resources and materials,
-                 including metals, plastics, and glass, all of which require energy to mine and
-                 manufacture. Donating or recycling consumer electronics conserves our natural resources
-                 and avoids air and water pollution, as well as greenhouse gas emissions that are caused by
-                 manufacturing virgin materials.</p>
+                 description: '<p>A blister pack is a very common kind of primary packaging made of rigid plastic and
+                 a lidding material, used to pack a variety of small consumer items: toys, cosmetics, stationery,
+                 and of course, medicines.</p>
                  <h5 class="text-primary">How to recycle blisters</h5>
                  <ul class="recycle-list">
                    <li>Remove all aluminium from the blister pack</li>
                    <li>Separate the plastic</li>
                    <li>Recycle separately</li>
-                 </ul>')
+                 </ul>
+                 <p>Contact your local cooperatives to find out more about how they recycle blisters</p>')
 Material.create!(name: "Toxic",
                  description: %(<p>It's important to dispose of hazardous products properly to keep toxicchemicals
                  out of the environment. Improper disposal can do harm to wildlife, ecosystems, and human health.</p>
