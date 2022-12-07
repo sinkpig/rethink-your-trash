@@ -4,9 +4,9 @@
     <%# When profile picture not included, show placeholder %>
     <div class="me-4 d-inline-block position-relative" style="bottom: -48px;">
       <% if current_user.photo.attached? %>
-        <%= cl_image_tag(@current_user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "rounded-circle border", style: "width: 80px; height: 80px; bottom: -48px;") %>
+        <%= cl_image_tag(@current_user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "rounded-circle", style: "width: 80px; height: 80px;") %>
       <% else %>
-        <%= cl_image_tag("Portrait_Placeholder_entv4p", width: 150, height: 150, crop: :fill, gravity: :face, class: "rounded-circle border", style: "width: 80px; height: 80px; bottom: -48px;") %>
+        <%= cl_image_tag("Portrait_Placeholder_entv4p", width: 150, height: 150, crop: :fill, gravity: :face, class: "rounded-circle border", style: "width: 80px; height: 80px;") %>
       <% end %>
     </div>
     <h1 class="d-inline mb-0"><%= current_user.name %></h1>
