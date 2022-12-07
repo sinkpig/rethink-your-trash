@@ -22,13 +22,12 @@
           <li class="nav-item">
             <%= link_to "Cooperatives", cooperatives_path, class: "nav-link" %>
           </li>
-          <%# TODO: add notifications %>
-          <li class="nav-item dropdown ms-4">
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle fw-bold" style="cursor: pointer;" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.photo.attached? %>
-                <%= cl_image_tag(@current_user.photo.key, width: 150, height: 150, crop: :fill, gravity: :face, class: "avatar") %>
+                <%= cl_image_tag(current_user.photo.key, width: 150, height: 150, crop: :fill, class: "avatar") %>
               <% else %>
-                <%= cl_image_tag("Portrait_Placeholder_entv4p", width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar") %>
+                <%= cl_image_tag("Portrait_Placeholder_entv4p", width: 150, height: 150, crop: :fill, class: "avatar") %>
               <% end %>
               <%= current_user.name %>
             </a>
@@ -48,9 +47,9 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle fw-bold" style="cursor: pointer;" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.photo.attached? %>
-                <%= cl_image_tag(@current_user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar") %>
+                <%= cl_image_tag(@current_user.photo.key, width: 150, height: 150, crop: :fill, class: "avatar") %>
               <% else %>
-                <%= cl_image_tag("Portrait_Placeholder_entv4p", width: 150, height: 150, crop: :fill, gravity: :face, class: "avatar") %>
+                <%= cl_image_tag("Portrait_Placeholder_entv4p", width: 150, height: 150, crop: :fill, class: "avatar") %>
               <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end border-0" aria-labelledby="navbarDropdown">

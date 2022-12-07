@@ -1,5 +1,10 @@
 <div class="bg-success position-relative mb-3" style="height: 120px;">
-  <div class="bg-white rounded-circle border position-absolute top-100 start-50 translate-middle" style="width: 80px; height: 80px;"></div>
+  <%# <div class="bg-white rounded-circle border position-absolute top-100 start-50 translate-middle" style="width: 80px; height: 80px;"></div> %>
+  <% if @cooperative.photo.attached? %>
+    <%= cl_image_tag(@cooperative.photo.key, width: 150, height: 150, crop: :fill, class: "avatar position-absolute top-100 start-50 translate-middle", style: "width: 80px; height: 80px;") %>
+  <% else %>
+    <%= cl_image_tag("Portrait_Placeholder_entv4p", width: 150, height: 150, crop: :fill, class: "avatar position-absolute top-100 start-50 translate-middle", style: "width: 80px; height: 80px;") %>
+  <% end %>
 </div>
 <div class="container py-5 text-center">
   <h1 class="px-md-5 mx-md-5"><%= @cooperative.name %></h1>
