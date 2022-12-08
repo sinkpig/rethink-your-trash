@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     if current_user&.person?
       @trades = Trade.where(person_id: current_user.id, status: ["In Progress", "Pending"]).order(created_at: :desc)
       @materials = Material.all.sample(8)
+      # @cooperative = User.find(params[:cooperative_id])
       map
       # fazer a wallet
     elsif current_user&.cooperative?
