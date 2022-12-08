@@ -89,7 +89,12 @@
       <% @cooperatives.each do |cooperative| %>
         <div class="col-2 text-center">
           <%= link_to cooperative_path(cooperative), class: "text-decoration-none" do %>
-            <div class="bg-white rounded-circle d-inline-block mb-2 border" style="width: 50px; height: 50px;"></div>
+            <%# <div class="bg-white rounded-circle d-inline-block mb-2 border" style="width: 50px; height: 50px;"></div> %>
+            <% if cooperative.photo.attached? %>
+              <%= cl_image_tag(cooperative.photo.key, width: 150, height: 150, crop: :fill, class: "avatar rounded-circle d-inline-block mb-2", style: "width: 50px; height: 50px;") %>
+            <% else %>
+              <%= cl_image_tag("Portrait_Placeholder_entv4p", width: 150, height: 150, crop: :fill, class: "avatar rounded-circle d-inline-block mb-2", style: "width: 50px; height: 50px;") %>
+            <% end %>
             <h6><%= cooperative.name %></h6>
           <% end %>
         </div>

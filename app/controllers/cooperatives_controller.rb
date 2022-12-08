@@ -1,6 +1,5 @@
 class CooperativesController < ApplicationController
   before_action :find_cooperative, except: %i[index]
-  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     if params[:query].present?
