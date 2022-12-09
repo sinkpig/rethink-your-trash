@@ -5,7 +5,8 @@
         <% if cooperative.photo.attached? %>
           <%= cl_image_tag(cooperative.photo.key, width: 150, height: 150, crop: :fill, class: "avatar me-3", style: "width: 50px; height: 100%;") %>
         <% else %>
-          <%= cl_image_tag("Portrait_Placeholder_entv4p", width: 150, height: 150, crop: :fill, class: "avatar me-3", style: "width: 50px; height: 100%;") %>
+          <%# <%= cl_image_tag("placeholder_rk7xuq", width: 150, height: 150, crop: :fill, class: "avatar me-3", style: "width: 50px; height: 100%;") %>
+          <%= image_tag("http://res.cloudinary.com/dfefgeidi/image/upload/c_fill,h_150,w_150/placeholder_rk7xuq", class: "avatar me-3", style: "width: 50px; height: 100%;") %>
         <% end %>
         <div>
           <%= link_to cooperative_path(cooperative), class: "text-decoration-none stretched-link" do %>

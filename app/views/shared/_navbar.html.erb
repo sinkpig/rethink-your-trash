@@ -27,7 +27,8 @@
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag(current_user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar") %>
               <% else %>
-                <%= cl_image_tag("Portrait_Placeholder_entv4p", width: 150, height: 150, crop: :fill, gravity: :face, class: "avatar") %>
+                <%# cl_image_tag("Portrait_Placeholder_entv4p", width: 150, height: 150, crop: :fill, gravity: :face, class: "avatar") %>
+                <%= image_tag("http://res.cloudinary.com/dfefgeidi/image/upload/c_fill,h_150,w_150/placeholder_rk7xuq", class: "avatar") %>
               <% end %>
               <%= current_user.name %>
             </a>

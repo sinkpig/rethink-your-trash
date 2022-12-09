@@ -28,7 +28,9 @@
       <%= render "shared/navbar" %>
     <% end %>
     <%= render "shared/flashes" %>
-    <%= yield %>
+    <div style="min-height: 83vh;">
+      <%= yield %>
+    </div>
     <% unless current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
       <%= render "shared/footer" %>
     <% end %>
